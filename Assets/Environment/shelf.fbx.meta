@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Environment/PokerTable/source/PoolTableErgasia3.fbx.meta
-guid: 76695a3af9061fd47b55b8100765a6b1
-=======
-guid: 3843dd9b7ae1d444a8a685903d3111d2
->>>>>>> 12bf70c735e7349399233ce8ae5bc2d91c425ac6:Assets/Environment/shop.fbx.meta
+guid: 9eb74686ee583b345885d07fc2e723ba
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
