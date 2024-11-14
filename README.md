@@ -28,3 +28,4 @@ Coming soon!
 - [Fishbowl](https://sketchfab.com/3d-models/world-skills-fish-bowl-practice-0c1dc0942a244e77929c367e564ab8e4)
 - [Fishbowl accessories](https://sketchfab.com/3d-models/room-aquarium-now-animated-3d2177c3e90a4379b3484d811c013284)
 - [Fishbowl ruin](https://sketchfab.com/3d-models/temple-ruin-aquarium-decoration-photoscan-fad156666c33460a9074ceaa6ed6c93e)
+- [Fishbowl chest](https://sketchfab.com/3d-models/treasure-chest-773a2f35025b4e2e9ac48fd84c16b3ab)
