@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class CameraSwitch : MonoBehaviour
 {
+    public AreaTransitionManager transitionManager;
     public Cinemachine.CinemachineVirtualCamera targetCamera;
     public Texture2D hoverCursor;
     private Texture2D defaultCursor;
+    private Collider areaCollider;
 
     private void Start()
     {
         defaultCursor = CursorTextureManager.Instance.GetDefaultCursor();
+        areaCollider = GetComponent<Collider>();
+
     }
 
     private void OnMouseEnter()
@@ -25,7 +29,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (targetCamera != null)
         {
-            targetCamera.Priority = 10; // Prioritize this camera view
+            transitionManager.TransitionToArea(targetCamera, areaCollider);
         }
     }
 }

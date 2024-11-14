@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7d11a273afc2c489041eee4694031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionManager: {fileID: 0}
   targetCamera: {fileID: 750803361}
   hoverCursor: {fileID: 2800000, guid: b6b9bbc1c58ef95448202487479b7b24, type: 3}
 --- !u!1 &286719075
@@ -323,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7d11a273afc2c489041eee4694031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionManager: {fileID: 0}
   targetCamera: {fileID: 0}
   hoverCursor: {fileID: 2800000, guid: 2a8d09081a2908244993864fd21a1c92, type: 3}
 --- !u!1 &375093422
@@ -603,6 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7d11a273afc2c489041eee4694031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionManager: {fileID: 0}
   targetCamera: {fileID: 0}
   hoverCursor: {fileID: 2800000, guid: d0175be2696a87e4f97407c727e897e4, type: 3}
 --- !u!1001 &465514699
@@ -1314,7 +1317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 800686821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593ef936b74d49a5872576cd38b6a0b1, type: 3}
+  m_Script: {fileID: 11500000, guid: e4636afffa5263345a807d2e469e237d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCursor: {fileID: 2800000, guid: e5538e091e582c240ad2b628d1e1bebb, type: 3}
@@ -1767,6 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7d11a273afc2c489041eee4694031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionManager: {fileID: 0}
   targetCamera: {fileID: 0}
   hoverCursor: {fileID: 2800000, guid: 7f688caea7113a94a8e6234941d76ca4, type: 3}
 --- !u!1 &1630398013
