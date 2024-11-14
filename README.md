@@ -26,3 +26,5 @@ Coming soon!
 - [Store shelves](https://sketchfab.com/3d-models/old-shelves-tv-stand-and-closets-9fdec87bf0554695aa5c46a6b801d440)
 - [Slot machine](https://sketchfab.com/3d-models/slot-machine-3efc01588cd34eae99bc78a64fa0970c)
 - [Fishbowl](https://sketchfab.com/3d-models/world-skills-fish-bowl-practice-0c1dc0942a244e77929c367e564ab8e4)
+- [Fishbowl accessories](https://sketchfab.com/3d-models/room-aquarium-now-animated-3d2177c3e90a4379b3484d811c013284)
+- [Fishbowl ruin](https://sketchfab.com/3d-models/temple-ruin-aquarium-decoration-photoscan-fad156666c33460a9074ceaa6ed6c93e)
