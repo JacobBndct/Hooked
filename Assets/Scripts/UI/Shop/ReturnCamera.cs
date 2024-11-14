@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ReturnCamera : MonoBehaviour
 {
-    public AreaTransitionManager transitionManager;
+    public ShopTransition transitionManager;
 
     private void OnMouseDown()
     {

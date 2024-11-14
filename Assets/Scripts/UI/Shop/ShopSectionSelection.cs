@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class CameraSwitch : MonoBehaviour
+public class ShopSectionSelection : MonoBehaviour
 {
-    public AreaTransitionManager transitionManager;
+    public ShopTransition transitionManager;
     public Cinemachine.CinemachineVirtualCamera targetCamera;
     public Texture2D hoverCursor;
     private Texture2D defaultCursor;
-    private Collider areaCollider;
 
     private void Start()
     {
         defaultCursor = CursorTextureManager.Instance.GetDefaultCursor();
-        areaCollider = GetComponent<Collider>();
 
     }
 
@@ -29,7 +27,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (targetCamera != null)
         {
-            transitionManager.TransitionToArea(targetCamera, areaCollider);
+            transitionManager.TransitionToArea(targetCamera);
         }
     }
 }
