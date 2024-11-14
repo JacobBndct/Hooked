@@ -6,6 +6,6 @@ public class ReturnCamera : MonoBehaviour
 
     private void OnMouseDown()
     {
-        transitionManager.ReturnToMainView(); // Centralized return to main view
+        transitionManager.ReturnToMainView();
     }
 }

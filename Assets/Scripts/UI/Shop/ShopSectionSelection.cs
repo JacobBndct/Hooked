@@ -10,7 +10,7 @@ public class ShopSectionSelection : MonoBehaviour
     private void Start()
     {
         defaultCursor = CursorTextureManager.Instance.GetDefaultCursor();
-
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void OnMouseEnter()
@@ -31,4 +31,3 @@ public class ShopSectionSelection : MonoBehaviour
         }
     }
 }
-

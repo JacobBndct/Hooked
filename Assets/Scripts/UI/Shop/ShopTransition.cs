@@ -7,7 +7,15 @@ public class ShopTransition : MonoBehaviour
     public GameObject returnButton; // UI button to return to the main view
 
     private CinemachineVirtualCamera activeCamera;
-
+    
+    private void Start()
+    {
+        // Ensure the return button is hidden at the start
+        if (returnButton != null)
+        {
+            returnButton.SetActive(false);
+        }
+    }
     public void TransitionToArea(CinemachineVirtualCamera targetCamera)
     {
         // Reset priority of the currently active camera if there is one
