@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muskie
       objectReference: {fileID: 0}
+    - target: {fileID: 6237340783213415666, guid: db88b051ffd85eb27b68de4e0f0a3329, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6756715323015976520, guid: db88b051ffd85eb27b68de4e0f0a3329, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.686476
@@ -417,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salmon
       objectReference: {fileID: 0}
+    - target: {fileID: 6416695788417079927, guid: be7fb60899121a1a195d0a7fb4fa4c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -433,6 +441,10 @@ PrefabInstance:
     - target: {fileID: 2429357112144408242, guid: 127e7c40cfd2f39bf8b122cada2709d1, type: 3}
       propertyPath: m_Name
       value: sturgeon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429357112144408242, guid: 127e7c40cfd2f39bf8b122cada2709d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3097667030600381448, guid: 127e7c40cfd2f39bf8b122cada2709d1, type: 3}
       propertyPath: m_LocalPosition.x
