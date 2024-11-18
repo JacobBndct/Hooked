@@ -30,6 +30,8 @@ Coming soon!
 - [Store barrel](https://sketchfab.com/3d-models/barrel-341eecd25e7f4914a6d321e71e5629af)
 - [Ship in a bottle](https://sketchfab.com/3d-models/ship-in-a-bottle-free-download-599eda0ca7264058a774bd42db3e89c0)
 - [Singing fish](https://sketchfab.com/3d-models/singing-fish-be1d414591b94c4f9bad500a637d8c56)
+- [Fishing rod](https://sketchfab.com/3d-models/fishing-rod-2379c4d6bd894395aca307619ff48689)
+- [Fishing trophy](https://www.cgtrader.com/free-3d-print-models/house/decor/fishing-trophy)
 - [Slot machine](https://sketchfab.com/3d-models/slot-machine-3efc01588cd34eae99bc78a64fa0970c)
 - [Fishbowl](https://sketchfab.com/3d-models/world-skills-fish-bowl-practice-0c1dc0942a244e77929c367e564ab8e4)
 - [Fishbowl accessories](https://sketchfab.com/3d-models/room-aquarium-now-animated-3d2177c3e90a4379b3484d811c013284)
