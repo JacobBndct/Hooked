@@ -16,7 +16,7 @@ public class MapSelectionManager : MonoBehaviour
     public string deepOceanLevelName = "Ocean";
     public string nightTimeLevelName = "Dark";
     public string caveLevelName = "Cave";
-    public string lake = "Lake"; // Default level name
+    public string lake = "BoatPrototype"; // Default level name
 
     private string selectedLevel;
 

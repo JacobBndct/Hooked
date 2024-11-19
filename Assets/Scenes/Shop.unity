@@ -352,6 +352,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 20906e108f1d0544e8631b1d452a9642, type: 3}
   m_PrefabInstance: {fileID: 1621368680}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &80845564 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+  m_PrefabInstance: {fileID: 1946312106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &84201700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +3428,7 @@ Transform:
   m_GameObject: {fileID: 975189213}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.22, y: 5.85, z: -3.46}
+  m_LocalPosition: {x: 9.83, y: 6.78, z: -3.46}
   m_LocalScale: {x: 0.23023912, y: 0.22670257, z: 0.40022072}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3726,14 +3731,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078254426}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023615334, y: 0.88732773, z: -0.045726456, w: 0.4582586}
+  m_LocalRotation: {x: -0.0014369125, y: 0.88850075, z: 0.0027822969, w: 0.45886445}
   m_LocalPosition: {x: 3.11, y: 4.18, z: 4.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1630398014}
   m_Father: {fileID: 286719076}
-  m_LocalEulerAnglesHint: {x: 5.9, y: 125.372, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.359, y: 125.372, z: 0}
 --- !u!114 &1078254428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5519,6 +5524,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -5220915460469953207, guid: 20906e108f1d0544e8631b1d452a9642, type: 3}
   m_PrefabInstance: {fileID: 1621368680}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675134363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675134364}
+  m_Layer: 0
+  m_Name: PetFish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675134364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675134363}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9793428, z: -0, w: 0.20220712}
+  m_LocalPosition: {x: 11.851669, y: 5.26, z: -1.6036055}
+  m_LocalScale: {x: 0.7129923, y: 0.7129923, z: 0.7129923}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 80845564}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -156.668, z: 0}
 --- !u!1 &1704115007
 GameObject:
   m_ObjectHideFlags: 0
@@ -6157,6 +6194,75 @@ Transform:
   - {fileID: 2074394883}
   m_Father: {fileID: 662321327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1946312106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1675134364}
+    m_Modifications:
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0706214
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0706209
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0706214
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4939419
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -8.348643e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.869495
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -8.348643e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305480628551032290, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633666523849002872, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_Name
+      value: Pet Fish
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
 --- !u!1 &1967480774
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,7 +6500,7 @@ MonoBehaviour:
   deepOceanLevelName: DeepOceanScene
   nightTimeLevelName: NightTimeScene
   caveLevelName: CaveScene
-  lake: DefaultScene
+  lake: BoatPrototype
   mapUIController: {fileID: 1971305616}
 --- !u!114 &1971305616
 MonoBehaviour:
@@ -7605,3 +7711,4 @@ SceneRoots:
   - {fileID: 662321327}
   - {fileID: 2009018477}
   - {fileID: 811920095}
+  - {fileID: 1675134364}
