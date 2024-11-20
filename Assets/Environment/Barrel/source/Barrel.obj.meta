@@ -7,53 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-<<<<<<<< HEAD:Assets/Models/Slot Machine/slots.fbx.meta
-      name: gacha1mat
-    second: {fileID: 2100000, guid: 86b7644b5642ee64eb122129c6c38a8d, type: 2}
+      name: 
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gacha2mat
-    second: {fileID: 2100000, guid: 0f4f1c39199b5ad4eac2e46b2bb28744, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha3mat
-    second: {fileID: 2100000, guid: 1dc2577a793f89f4a893c96dad0dc358, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha4mat
-    second: {fileID: 2100000, guid: 767abc73a3c41d144bb5fce602cec8f4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha5mat
-    second: {fileID: 2100000, guid: 9e4218b7850b53140a3b8673b3fc0196, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha6mat
-    second: {fileID: 2100000, guid: 28bc0b8a16800044996e7634e43d50f3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha7mat
-    second: {fileID: 2100000, guid: c7b02c8f1c3f78c43a58d11fcbd19de1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gacha8mat
-    second: {fileID: 2100000, guid: f0f40bc3e626be44285325c4ede42c30, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: spin_base_mat
-    second: {fileID: 2100000, guid: ae8f455c5f4c2fc489548ad2c3fc8561, type: 2}
-========
       name: LP_allMat
     second: {fileID: 2100000, guid: bf007e84f20c50644a3eb47d2056d2c5, type: 2}
->>>>>>>> dev:Assets/Environment/Barrel/source/Barrel.obj.meta
   materials:
     materialImportMode: 2
     materialName: 0
