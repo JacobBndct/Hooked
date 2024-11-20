@@ -308,7 +308,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 18.5, y: -98.99, z: 0}
---- !u!1001 &3073796894511209697
+--- !u!1001 &2062751200981388887
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -316,55 +316,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 1217111096005379936, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
+      propertyPath: m_Name
+      value: Slot Machine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.632952
+      value: -8.562259
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -107.006744
+      value: -17.297115
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.37551683
+      value: 0.25218558
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9268156
+      value: 0.9676789
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 135.888
+      value: 150.786
       objectReference: {fileID: 0}
-    - target: {fileID: 4890960624274363642, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+    - target: {fileID: 9205925047044136599, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5236558725769825856, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
-      propertyPath: m_Name
-      value: Slot Machine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f9c840b99e9e6924d9ce97cbd5a1881b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4880c36666ab83d439bc7be524ec91ce, type: 3}
 --- !u!1001 &4345020866866465500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pet Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 4515962502829152721, guid: 570ae9ea41e47b041a8663c585c15036, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -429,4 +433,4 @@ SceneRoots:
   - {fileID: 125205796}
   - {fileID: 97687508}
   - {fileID: 4345020866866465500}
-  - {fileID: 3073796894511209697}
+  - {fileID: 2062751200981388887}

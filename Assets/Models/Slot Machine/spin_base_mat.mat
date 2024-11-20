@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: glass
+  m_Name: spin_base_mat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -68,11 +68,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-<<<<<<<< HEAD:Assets/Models/Slot Machine/spin_base_mat.mat
-    - _Glossiness: 0
-========
-    - _Glossiness: 0.6681045
->>>>>>>> dev:Assets/Environment/Cabinet/source/glass.mat
+    - _Glossiness: 0.59999996
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 3
@@ -84,6 +80,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.754698, g: 0.754698, b: 0.754698, a: 0.24025977}
+    - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

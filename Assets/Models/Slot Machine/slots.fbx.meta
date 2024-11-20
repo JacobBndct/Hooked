@@ -7,7 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-<<<<<<<< HEAD:Assets/Models/Slot Machine/slots.fbx.meta
+      name: 
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: gacha1mat
     second: {fileID: 2100000, guid: 86b7644b5642ee64eb122129c6c38a8d, type: 2}
   - first:
@@ -49,11 +53,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: spin_base_mat
-    second: {fileID: 2100000, guid: ae8f455c5f4c2fc489548ad2c3fc8561, type: 2}
-========
-      name: LP_allMat
-    second: {fileID: 2100000, guid: bf007e84f20c50644a3eb47d2056d2c5, type: 2}
->>>>>>>> dev:Assets/Environment/Barrel/source/Barrel.obj.meta
+    second: {fileID: 2100000, guid: 9533fbc8653d71444bd1c1015a7d220c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
