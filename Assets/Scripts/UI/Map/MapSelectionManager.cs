@@ -28,6 +28,18 @@ public class MapSelectionManager : MonoBehaviour
 
     private void Start()
     {
+        // Initialize upgrade states from PlayerData
+        if (PlayerManager.Instance != null && PlayerManager.Instance.playerData != null)
+        {
+            hasEngineUpgrade = PlayerManager.Instance.playerData.engineUpgrade;
+            hasLightsUpgrade = PlayerManager.Instance.playerData.lightsUpgrade;
+            hasHullUpgrade = PlayerManager.Instance.playerData.hullUpgrade;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerManager or PlayerData is not initialized.");
+        }
+
         // Set all level buttons to locked state initially
         deepOceanButton.interactable = false;
         nightTimeButton.interactable = false;
@@ -41,6 +53,7 @@ public class MapSelectionManager : MonoBehaviour
         caveButton.onClick.AddListener(() => SelectLevel(caveLevelName));
         defaultLevelButton.onClick.AddListener(() => SelectLevel(lake));
 
+        // Update the level availability based on the saved state
         UpdateLevelAvailability();
     }
 

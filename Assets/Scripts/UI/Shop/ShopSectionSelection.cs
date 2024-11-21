@@ -25,9 +25,10 @@ public class ShopSectionSelection : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (targetCamera != null)
+        if (targetCamera != null && transitionManager != null)
         {
-            transitionManager.TransitionToArea(targetCamera);
+            // Transition to the shop camera
+            transitionManager.TransitionToShop();
         }
     }
 }
