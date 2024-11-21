@@ -7727,14 +7727,14 @@ MonoBehaviour:
   deepOceanButton: {fileID: 1505992643}
   nightTimeButton: {fileID: 2009132053}
   caveButton: {fileID: 1494221906}
-  defaultLevelButton: {fileID: 1051160069}
+  lakeButton: {fileID: 1051160069}
   deepOceanLock: {fileID: 2133124038}
   nightTimeLock: {fileID: 430107625}
   caveLock: {fileID: 1377380175}
-  deepOceanLevelName: DeepOceanScene
-  nightTimeLevelName: NightTimeScene
-  caveLevelName: CaveScene
-  lake: DefaultScene
+  deepOceanLevelName: Ocean
+  nightTimeLevelName: Dark
+  caveLevelName: Cave
+  lakeLevelName: Lake
   mapUIController: {fileID: 1971305616}
 --- !u!114 &1971305616
 MonoBehaviour:

@@ -7,7 +7,7 @@ public class MapSelectionManager : MonoBehaviour
     public Button deepOceanButton;
     public Button nightTimeButton;
     public Button caveButton;
-    public Button defaultLevelButton;
+    public Button lakeButton;
 
     public GameObject deepOceanLock; // Lock icon for Deep Ocean level
     public GameObject nightTimeLock; // Lock icon for Night Time level
@@ -16,7 +16,7 @@ public class MapSelectionManager : MonoBehaviour
     public string deepOceanLevelName = "Ocean";
     public string nightTimeLevelName = "Dark";
     public string caveLevelName = "Cave";
-    public string lake = "Lake"; // Default level name
+    public string lakeLevelName = "Lake";
 
     private string selectedLevel;
 
@@ -44,12 +44,10 @@ public class MapSelectionManager : MonoBehaviour
         nightTimeButton.interactable = false;
         caveButton.interactable = false;
 
-        selectedLevel = lake;
-
         deepOceanButton.onClick.AddListener(() => SelectLevel(deepOceanLevelName));
         nightTimeButton.onClick.AddListener(() => SelectLevel(nightTimeLevelName));
         caveButton.onClick.AddListener(() => SelectLevel(caveLevelName));
-        defaultLevelButton.onClick.AddListener(() => SelectLevel(lake));
+        lakeButton.onClick.AddListener(() => SelectLevel(lakeLevelName));
 
         //Update map
         UpdateLevelAvailability();

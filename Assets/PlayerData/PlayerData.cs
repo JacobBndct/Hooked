@@ -33,7 +33,7 @@ public class PlayerData
     // Load progress (upgrades, inventory, etc.)
     public void LoadPlayerData()
     {
-        money = PlayerPrefs.GetInt("Money", 100);//goes back to default
+        money = PlayerPrefs.GetInt("Money", 100);
         casinoTokens = PlayerPrefs.GetInt("CasinoTokens", 0);
         worms = PlayerPrefs.GetInt("Worms", 0);
         
