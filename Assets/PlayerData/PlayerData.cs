@@ -8,7 +8,7 @@ public class PlayerData
     public int casinoTokens = 0; // Casino token currency
     public int worms = 0; // Worms in inventory
 
-    // Boat Upgrades
+    //Boat Upgrades
     public bool engineUpgrade = false;
     public bool lightsUpgrade = false;
     public bool hullUpgrade = false;
@@ -33,7 +33,7 @@ public class PlayerData
     // Load progress (upgrades, inventory, etc.)
     public void LoadPlayerData()
     {
-        money = PlayerPrefs.GetInt("Money", 100); // Default 100 if no data saved
+        money = PlayerPrefs.GetInt("Money", 100);//goes back to default
         casinoTokens = PlayerPrefs.GetInt("CasinoTokens", 0);
         worms = PlayerPrefs.GetInt("Worms", 0);
         

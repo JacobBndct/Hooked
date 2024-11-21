@@ -28,7 +28,7 @@ public class MapSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        // Initialize upgrade states from PlayerData
+        //Initialize upgrade states from PlayerData
         if (PlayerManager.Instance != null && PlayerManager.Instance.playerData != null)
         {
             hasEngineUpgrade = PlayerManager.Instance.playerData.engineUpgrade;
@@ -40,23 +40,21 @@ public class MapSelectionManager : MonoBehaviour
             Debug.LogWarning("PlayerManager or PlayerData is not initialized.");
         }
 
-        // Set all level buttons to locked state initially
         deepOceanButton.interactable = false;
         nightTimeButton.interactable = false;
         caveButton.interactable = false;
 
         selectedLevel = lake;
 
-        // Add listeners for each level button
         deepOceanButton.onClick.AddListener(() => SelectLevel(deepOceanLevelName));
         nightTimeButton.onClick.AddListener(() => SelectLevel(nightTimeLevelName));
         caveButton.onClick.AddListener(() => SelectLevel(caveLevelName));
         defaultLevelButton.onClick.AddListener(() => SelectLevel(lake));
 
-        // Update the level availability based on the saved state
+        //Update map
         UpdateLevelAvailability();
     }
-
+    //UI management
     public void OpenMap()
     {
         mapPanel.SetActive(true);
@@ -66,22 +64,19 @@ public class MapSelectionManager : MonoBehaviour
     {
         mapPanel.SetActive(false);
     }
-
+    //UI level management
     public void UpdateLevelAvailability()
     {
-        // Update Deep Ocean level lock and interactability
         deepOceanButton.interactable = hasEngineUpgrade;
-        deepOceanLock.SetActive(!hasEngineUpgrade); // Show lock if not unlocked
+        deepOceanLock.SetActive(!hasEngineUpgrade);
 
-        // Update Night Time level lock and interactability
         nightTimeButton.interactable = hasLightsUpgrade;
-        nightTimeLock.SetActive(!hasLightsUpgrade); // Show lock if not unlocked
+        nightTimeLock.SetActive(!hasLightsUpgrade);
 
-        // Update Cave level lock and interactability
         caveButton.interactable = hasHullUpgrade;
-        caveLock.SetActive(!hasHullUpgrade); // Show lock if not unlocked
+        caveLock.SetActive(!hasHullUpgrade);
     }
-
+    //level selection
     private void SelectLevel(string levelName)
     {
         selectedLevel = levelName;
@@ -92,13 +87,13 @@ public class MapSelectionManager : MonoBehaviour
             mapUIController.CloseMap();
         }
     }
-
+    //getter
     public string GetSelectedLevel()
     {
         return selectedLevel;
     }
 
-    // Methods to unlock levels (called from shop upgrades)
+    //upgrade unlock calls
     public void UnlockEngineUpgrade()
     {
         hasEngineUpgrade = true;

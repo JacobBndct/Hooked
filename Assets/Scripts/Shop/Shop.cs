@@ -10,7 +10,8 @@ public class Shop : MonoBehaviour
     public int lightsUpgradeCost = 75;
     public int hullUpgradeCost = 50;
     public int wormCost = 10;
-
+    
+    //Level unlock logic
     public void PurchaseEngineUpgrade()
     {
         if (!PlayerManager.Instance.playerData.engineUpgrade &&
@@ -19,7 +20,6 @@ public class Shop : MonoBehaviour
             PlayerManager.Instance.playerData.money -= engineUpgradeCost;
             PlayerManager.Instance.playerData.engineUpgrade = true;
 
-            // Unlock the map area for ocean fishing
             mapSelectionManager.UnlockEngineUpgrade();
 
             Debug.Log("Engine Upgrade Purchased! Ocean fishing unlocked.");
@@ -38,7 +38,6 @@ public class Shop : MonoBehaviour
             PlayerManager.Instance.playerData.money -= lightsUpgradeCost;
             PlayerManager.Instance.playerData.lightsUpgrade = true;
 
-            // Unlock the Night Time level
             if (mapSelectionManager != null)
             {
                 mapSelectionManager.UnlockLightsUpgrade();
@@ -65,7 +64,6 @@ public class Shop : MonoBehaviour
             PlayerManager.Instance.playerData.money -= hullUpgradeCost;
             PlayerManager.Instance.playerData.hullUpgrade = true;
 
-            // Unlock the map area for cave fishing
             mapSelectionManager.UnlockHullUpgrade();
 
             Debug.Log("Hull Upgrade Purchased! Cave fishing unlocked.");

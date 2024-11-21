@@ -5,14 +5,14 @@ public class ShopTransition : MonoBehaviour
 {
     public CinemachineVirtualCamera mainCamera;
     public CinemachineVirtualCamera shopCamera;
-    public GameObject shopUI; // Reference to the shop UI
-    public GameObject returnButton; // UI button to return to the main view
+    public GameObject shopUI;
+    public GameObject returnButton;
 
     private CinemachineVirtualCamera activeCamera;
 
     private void Start()
     {
-        // Ensure UI elements are hidden at the start
+        //initial UI state
         if (shopUI != null)
         {
             shopUI.SetActive(false);
@@ -26,13 +26,12 @@ public class ShopTransition : MonoBehaviour
 
     public void TransitionToShop()
     {
-        // Switch to the shop camera
+        //show ui
         if (shopCamera != null)
         {
             TransitionToArea(shopCamera);
         }
-
-        // Show the shop UI
+        
         if (shopUI != null)
         {
             shopUI.SetActive(true);
@@ -41,7 +40,7 @@ public class ShopTransition : MonoBehaviour
 
     public void ReturnToMainView()
     {
-        // Reset the active camera and switch back to the main camera
+        //camera reset
         if (activeCamera != null)
         {
             activeCamera.Priority = 0;
@@ -53,32 +52,29 @@ public class ShopTransition : MonoBehaviour
             mainCamera.Priority = 10;
         }
 
-        // Hide the shop UI
+        //hide ui
         if (shopUI != null)
         {
             shopUI.SetActive(false);
         }
-
-        // Hide the return button
+        
         if (returnButton != null)
         {
             returnButton.SetActive(false);
         }
     }
-
+    //camera movement logic
     public void TransitionToArea(CinemachineVirtualCamera targetCamera)
     {
-        // Reset priority of the currently active camera if there is one
         if (activeCamera != null)
         {
             activeCamera.Priority = 0;
         }
 
-        // Set the new area camera as the active one and give it higher priority
         activeCamera = targetCamera;
         activeCamera.Priority = 10;
 
-        // Show the return button to allow transitioning back to the main view
+        //return button
         if (returnButton != null)
         {
             returnButton.SetActive(true);
