@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Environment/EngineUpgrade.meta
 guid: 8c7c0f728e80d3c48bfeeb13b334661e
+========
+guid: c5da395fc0a11864c9988f3d1e982830
+>>>>>>>> dev:Assets/Environment/MapObj.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
