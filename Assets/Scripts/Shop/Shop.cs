@@ -1,18 +1,108 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public MapSelectionManager mapSelectionManager;
+
+    // Costs for items and upgrades
+    public int engineUpgradeCost = 100;
+    public int lightsUpgradeCost = 75;
+    public int hullUpgradeCost = 50;
+    public int wormCost = 10;
+    
+    //Level unlock logic
+    public void PurchaseEngineUpgrade()
     {
-        
+        if (!PlayerManager.Instance.playerData.engineUpgrade &&
+            PlayerManager.Instance.playerData.money >= engineUpgradeCost)
+        {
+            PlayerManager.Instance.playerData.money -= engineUpgradeCost;
+            PlayerManager.Instance.playerData.engineUpgrade = true;
+
+            mapSelectionManager.UnlockEngineUpgrade();
+
+            Debug.Log("Engine Upgrade Purchased! Ocean fishing unlocked.");
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money or Engine Upgrade already purchased!");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PurchaseLightsUpgrade()
     {
-        
+        if (!PlayerManager.Instance.playerData.lightsUpgrade &&
+            PlayerManager.Instance.playerData.money >= lightsUpgradeCost)
+        {
+            PlayerManager.Instance.playerData.money -= lightsUpgradeCost;
+            PlayerManager.Instance.playerData.lightsUpgrade = true;
+
+            if (mapSelectionManager != null)
+            {
+                mapSelectionManager.UnlockLightsUpgrade();
+            }
+            else
+            {
+                Debug.LogWarning("MapSelectionManager is not assigned in Shop.");
+            }
+
+            Debug.Log("Lights Upgrade Purchased! Nighttime fishing unlocked.");
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money or Lights Upgrade already purchased!");
+        }
+    }
+
+
+    public void PurchaseHullUpgrade()
+    {
+        if (!PlayerManager.Instance.playerData.hullUpgrade &&
+            PlayerManager.Instance.playerData.money >= hullUpgradeCost)
+        {
+            PlayerManager.Instance.playerData.money -= hullUpgradeCost;
+            PlayerManager.Instance.playerData.hullUpgrade = true;
+
+            mapSelectionManager.UnlockHullUpgrade();
+
+            Debug.Log("Hull Upgrade Purchased! Cave fishing unlocked.");
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money or Hull Upgrade already purchased!");
+        }
+    }
+
+    public void BuyWorms()
+    {
+        if (PlayerManager.Instance.playerData.money >= wormCost)
+        {
+            PlayerManager.Instance.playerData.money -= wormCost;
+            PlayerManager.Instance.playerData.worms += 5;
+            Debug.Log("You've purchased 5 worms!");
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money to buy worms!");
+        }
+    }
+
+
+    public void SellFish()
+    {
+        var fishInventory = PlayerManager.Instance.playerData.fishInventory;
+
+        if (fishInventory.Count > 0)
+        {
+            int totalValue = fishInventory.Sum(fish => fish.value);
+            PlayerManager.Instance.playerData.money += totalValue;
+            fishInventory.Clear();
+            Debug.Log($"Sold all fish for ${totalValue}!");
+        }
+        else
+        {
+            Debug.LogWarning("No fish to sell!");
+        }
     }
 }
