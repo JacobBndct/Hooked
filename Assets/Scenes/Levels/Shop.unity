@@ -5318,7 +5318,6 @@ GameObject:
   - component: {fileID: 1405819671}
   - component: {fileID: 1405819672}
   - component: {fileID: 1405819673}
-  - component: {fileID: 1405819674}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -5387,19 +5386,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655371f3c3b01ad4c84fd737017f4487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapUI: {fileID: 1971305610}
---- !u!114 &1405819674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405819669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cdff4baf570ac4381e5061cc85572b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mapUI: {fileID: 1971305610}
@@ -7727,14 +7713,14 @@ MonoBehaviour:
   deepOceanButton: {fileID: 1505992643}
   nightTimeButton: {fileID: 2009132053}
   caveButton: {fileID: 1494221906}
-  defaultLevelButton: {fileID: 1051160069}
+  lakeButton: {fileID: 1051160069}
   deepOceanLock: {fileID: 2133124038}
   nightTimeLock: {fileID: 430107625}
   caveLock: {fileID: 1377380175}
-  deepOceanLevelName: DeepOceanScene
-  nightTimeLevelName: NightTimeScene
-  caveLevelName: CaveScene
-  lake: DefaultScene
+  deepOceanLevelName: Ocean
+  nightTimeLevelName: Dark
+  caveLevelName: Cave
+  lakeLevelName: Lake
   mapUIController: {fileID: 1971305616}
 --- !u!114 &1971305616
 MonoBehaviour:

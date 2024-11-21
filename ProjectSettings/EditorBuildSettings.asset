@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Startup/StartScreen.unity
+    guid: f41bc2b49537e1144bf1e5dff5d25f4e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Shop.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lake.unity
+    guid: 1d1848d14da5c4d4a84246d0f9be3e2a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Cave.unity
+    guid: 708680d5eeadfe9438bbf8df468d1cf8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Ocean.unity
+    guid: 4a793b809f36c9c479bbc348a5b8cd53
+  - enabled: 1
+    path: Assets/Scenes/Levels/Dark.unity
+    guid: 32a3b0b76dc273041aae383c4fb4b170
   m_configObjects: {}
