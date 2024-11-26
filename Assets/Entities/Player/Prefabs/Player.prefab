@@ -171,8 +171,6 @@ GameObject:
   - component: {fileID: 1153327695580805247}
   - component: {fileID: 7771081486137364960}
   - component: {fileID: 8410081225756494325}
-  - component: {fileID: 187717596396917446}
-  - component: {fileID: 8933716934112820223}
   - component: {fileID: 7403415578612469462}
   m_Layer: 7
   m_Name: Player
@@ -297,35 +295,11 @@ MonoBehaviour:
     m_ActionId: 1d10dea5-b851-4c20-b47f-411f94f7a83d
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 187717596396917446}
-        m_TargetAssemblyTypeName: PlayerAbility, Assembly-CSharp
-        m_MethodName: PreformAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 56c95dc4-bb46-475f-bbfd-f66df9aca291
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8933716934112820223}
-        m_TargetAssemblyTypeName: PlayerAbility, Assembly-CSharp
-        m_MethodName: PreformAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 07f964cf-fd4d-4fa1-910f-6ad47cdce13e
     m_ActionName: Player/Grapple[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
@@ -375,7 +349,7 @@ MonoBehaviour:
   _startState: {fileID: 11400000, guid: 702e96271ee92cb4eadfe4a3df1ee422, type: 2}
   isGrounded: 1
   isMoving: 0
-  rb: {fileID: 0}
+  rb: {fileID: 2301487308224901285}
   isGrappling: 0
   isJumping: 0
 --- !u!114 &7771081486137364960
@@ -408,99 +382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ca7a700d53f1641bef98584ef675df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
-  acceleration: 20
---- !u!114 &187717596396917446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5164431175877375322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9215d98150566c247a52c9ef1de9f484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 30
-  jumpLength: 0.5
-  jumpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.00090000033
-      value: 1
-      inSlope: -2.1111984
-      outSlope: -2.1111984
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.04137119
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.47114956
-      outSlope: -0.47114956
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.06382977
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &8933716934112820223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5164431175877375322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bbf9888b32ba26429f6e8729e92fd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 4617429665666024462}
-  launcherTip: {fileID: 5315215626234604327}
-  IsGrappleableLayer:
-    serializedVersion: 2
-    m_Bits: 51
-  grappleRope: {fileID: 6381110203998980154}
-  maxGrappleDist: 10
-  ropeSpeed: 50
-  overshootYAxis: 1
-  pullPower: 2
-  pullDelay: 0.1
-  grappleCD: 1
-  quality: 500
-  damper: 14
-  strength: 800
-  waveCount: 3
-  waveHeight: 1
-  affectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 6.4647164
-      outSlope: 6.4647164
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.029550828
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  maxSpeed: 8
+  acceleration: 14
 --- !u!114 &7403415578612469462
 MonoBehaviour:
   m_ObjectHideFlags: 0

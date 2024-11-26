@@ -1,0 +1,16 @@
+{
+    "name": "Time_Manager",
+    "rootNamespace": "",
+    "references": [
+        "GUID:14fec95fa6b4c3b4c9004b336eb4dd56"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
