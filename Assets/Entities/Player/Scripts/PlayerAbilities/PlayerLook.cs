@@ -79,4 +79,10 @@ public class PlayerLook : PlayerAbility
     {
         return Mathf.Pow(-1, isInverted ? 1 : 0);
     }
+
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

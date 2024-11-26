@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6958970231121163419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8211642652221786000}
+  - component: {fileID: 6133427500319372164}
+  - component: {fileID: 7630933958684069994}
+  - component: {fileID: 6923149247817810394}
+  m_Layer: 0
+  m_Name: DayNightTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8211642652221786000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958970231121163419}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6133427500319372164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958970231121163419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0d43afac8450541bb7923fac120d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endTime: 15
+  _timeScale: 1
+  _tickEvent: {fileID: 11400000, guid: d0292b84a61bc6b4ab4f6fa06bf29ff4, type: 2}
+  _endEvent: {fileID: 11400000, guid: c2d603fbb681794488927ed9510a4428, type: 2}
+  _started: 1
+  _rewind: 0
+--- !u!114 &7630933958684069994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958970231121163419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787426044e651914baec6a60182e9eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sun: {fileID: 0}
+  _range: 160
+  _startingAngle: 10
+  _sunColourGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.7135849, b: 0.6745283, a: 1}
+    key1: {r: 0.69456095, g: 0.91402173, b: 0.8993294, a: 1}
+    key2: {r: 0.91764706, g: 0.9096694, b: 0.7607843, a: 0}
+    key3: {r: 0.9622642, g: 0.92515504, b: 0.83971167, a: 0}
+    key4: {r: 0.9433962, g: 0.7350991, b: 0.38714847, a: 0}
+    key5: {r: 0.745283, g: 0.3834085, b: 0.2988163, a: 0}
+    key6: {r: 0.1494461, g: 0.14066394, b: 0.2735849, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 3267
+    ctime2: 7111
+    ctime3: 44587
+    ctime4: 49199
+    ctime5: 56502
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
+  _Timer: {fileID: 6133427500319372164}
+--- !u!114 &6923149247817810394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958970231121163419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842d91d4a4daff84f824d43f52a70dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: d0292b84a61bc6b4ab4f6fa06bf29ff4, type: 2}
+  EventAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7630933958684069994}
+        m_TargetAssemblyTypeName: UpdateSkybox, Time_Manager
+        m_MethodName: SetSkyboxTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
