@@ -9,6 +9,6 @@ public class Entity : MonoBehaviour
     protected EntityStateMachine _stateMachine;
 
     // base entity variables
-    public bool isGrounded = true;
-    public bool isMoving = false;
+    public bool IsGrounded = true;
+    public bool IsMoving = false;
 }

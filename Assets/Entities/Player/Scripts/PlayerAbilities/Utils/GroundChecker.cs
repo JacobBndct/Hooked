@@ -22,7 +22,7 @@ public class GroundChecker : MonoBehaviour
     // check on update if the player is grounded
     private void Update()
     {
-        _player.isGrounded = IsOnGround();
+        _player.IsGrounded = IsOnGround();
     }
 
     // determine if the player is ground or not by raycast down from the player's feet 

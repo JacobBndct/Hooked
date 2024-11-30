@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f6bbc318801904aaa96e57084fb31b, type: 3}
+  m_Name: FishingState
+  m_EditorClassIdentifier: 
+  EnterStateActions: []
+  ExitStateActions: []
+  UpdateActions: []
+  FixedUpdateActions: []
+  LateUpdateActions: []
+  EntityStateTransition:
+  - {fileID: 11400000, guid: 6a77da1776a55654c9fc56c89aa714b2, type: 2}

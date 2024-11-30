@@ -25,7 +25,7 @@ public class PlayerMove : PlayerAbility
     // update the current movement direction based on player input
     protected override void Action(InputAction.CallbackContext context)
     {
-        _player.isMoving = true;
+        _player.IsMoving = true;
         playerDirection = context.ReadValue<Vector2>();
     }
 
@@ -42,7 +42,7 @@ public class PlayerMove : PlayerAbility
         // if no player direction is being given don't update the player's velocity
         if (direction == Vector3.zero)
         {
-            _player.isMoving = false;
+            _player.IsMoving = false;
             return;
         }
 

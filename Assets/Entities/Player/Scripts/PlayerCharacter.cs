@@ -1,6 +1,8 @@
+using Managers.CustomSceneManager;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : Entity
 {
@@ -9,11 +11,32 @@ public class PlayerCharacter : Entity
     public Rigidbody rb;
 
     // boolean conditional player character entity variables
-    public bool isGrappling = false;
-    public bool isJumping = false;
+    public bool IsFishing = false;
+    public Vector3 HookPosition = Vector3.zero;
+
+    // private instance
+    private static PlayerCharacter s_Instance;
+
+    // public static singleton instance of scene transitioner
+    public static PlayerCharacter Instance
+    {
+        get => s_Instance;
+        private set => s_Instance = value;
+    }
 
     public void Awake()
     {
+        // if there is another instance destroy self and throw warning
+        if (Instance != null)
+        {
+            Debug.LogWarning($"Invalid configuration. Duplicate instances found! First instance: {Instance.name}");
+            Destroy(gameObject);
+            return;
+        }
+
+        // set the singleton instance
+        s_Instance = this;
+
         // set up player character
         InitializePlayerstateMachine();
         rb = GetComponent<Rigidbody>();

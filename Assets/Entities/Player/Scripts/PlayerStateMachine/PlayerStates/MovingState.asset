@@ -18,7 +18,5 @@ MonoBehaviour:
   FixedUpdateActions: []
   LateUpdateActions: []
   EntityStateTransition:
-  - {fileID: 11400000, guid: 8246c63e73445244d891c923bd10a68f, type: 2}
   - {fileID: 11400000, guid: 9f48315753ef2494abd34218d879d180, type: 2}
   - {fileID: 11400000, guid: 46e6f95fe502cfe4fab89c40c4a56fe1, type: 2}
-  - {fileID: 11400000, guid: 7da3066d46695cc4eb02c31283c023fb, type: 2}

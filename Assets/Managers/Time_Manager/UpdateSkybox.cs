@@ -26,7 +26,7 @@ public class UpdateSkybox : MonoBehaviour
 
     public void SetSkyboxTime()
     {
-        float completion = _Timer._currentTime / _Timer._endTime;
+        float completion = _Timer.CurrentTime / _Timer.EndTime;
 
         RotateX(_startingAngle + completion * _range);
         SetColour(completion);

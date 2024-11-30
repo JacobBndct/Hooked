@@ -5,12 +5,12 @@ namespace Managers.Time
 {
     public class TimeManager : MonoBehaviour
     {
-        public float _currentTime { get; private set; } = 0f;
-
+        public float CurrentTime { get; private set; } = 0f;
         public float EndTime { get { return _endTime; } private set { _endTime = value; } }
+        public bool Ended = false;
 
         [SerializeField]
-        public float _endTime = 30f;
+        private float _endTime = 30f;
         [SerializeField]
         private float _timeScale = 1f;
 
@@ -27,15 +27,17 @@ namespace Managers.Time
 
         public void StartTimer()
         {
-            _currentTime = 0f;
+            CurrentTime = 0f;
             _started = true;
+            Ended = false;
         }
 
         public void EndTimer()
         {
-            _endEvent.TriggerEvent();
+            _endEvent?.TriggerEvent();
             _started = false;
-            _currentTime = _endTime;
+            Ended = true;
+            CurrentTime = _endTime;
         }
 
         public void ResetTimerSettings()
@@ -45,7 +47,7 @@ namespace Managers.Time
             _pause = false;
 
             _timeScale = 1f;
-            _currentTime = 0f;
+            CurrentTime = 0f;
             _endTime = 10f;
         }
 
@@ -58,12 +60,12 @@ namespace Managers.Time
         {
             if (!_pause && _started)
             {
-                _tickEvent.TriggerEvent();
+                _tickEvent?.TriggerEvent();
 
                 float direction = ((_rewind) ? -1f : 1f);
-                _currentTime += direction * _timeScale * deltaTime;
+                CurrentTime += direction * _timeScale * deltaTime;
 
-                if (_currentTime >= _endTime)
+                if (CurrentTime >= _endTime)
                 {
                     EndTimer();
                 }
@@ -77,7 +79,7 @@ namespace Managers.Time
 
         public void SetCurrentTime(float time)
         {
-            _currentTime = time;
+            CurrentTime = time;
         }
 
         public void SetEndTime(float endTime)
