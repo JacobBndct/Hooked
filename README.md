@@ -47,3 +47,7 @@ Coming soon!
 #### Boat
 - [Boat engine](https://sketchfab.com/search?features=downloadable&q=boat+engine&type=models)
 - [Headlight](https://sketchfab.com/3d-models/round-headlight-bc80e954ac954a149486d5547c42c3f0)
+
+### Audio
+- [Oof](https://www.youtube.com/watch?v=xYJ63OTMDL4)
+- [Slots sounds](https://www.youtube.com/watch?v=LBjAw8VC1Ok)
