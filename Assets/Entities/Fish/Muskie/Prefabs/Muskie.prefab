@@ -83,7 +83,6 @@ MonoBehaviour:
   IsGrounded: 1
   IsMoving: 0
   _data: {fileID: 11400000, guid: dd7f9e271f18d5d4fb4082c86e0455f4, type: 2}
-  IsScared: 0
   IsInterested: 0
   _timer: {fileID: 5709347555649647155}
 --- !u!114 &5709347555649647155
@@ -98,12 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0d43afac8450541bb7923fac120d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ended: 0
+  Ended: 1
   _endTime: 30
   _timeScale: 1
   _tickEvent: {fileID: 0}
   _endEvent: {fileID: 0}
-  _started: 1
+  _started: 0
   _rewind: 0
 --- !u!195 &8003362124182861430
 NavMeshAgent:

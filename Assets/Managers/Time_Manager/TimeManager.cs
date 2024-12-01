@@ -23,6 +23,8 @@ namespace Managers.Time
         private bool _started = true;
         [SerializeField]
         private bool _rewind = false;
+        [SerializeField]
+        private bool _resetOnEnd = false;
         private bool _pause = false;
 
         public void StartTimer()
@@ -38,6 +40,11 @@ namespace Managers.Time
             _started = false;
             Ended = true;
             CurrentTime = _endTime;
+
+            if (_resetOnEnd)
+            {
+                StartTimer();
+            }
         }
 
         public void ResetTimerSettings()

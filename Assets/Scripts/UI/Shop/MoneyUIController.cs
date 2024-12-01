@@ -8,7 +8,7 @@ public class MoneyUIController : MonoBehaviour
 
     private void Start()
     {
-        
+        DontDestroyOnLoad(transform.parent.parent);
         UpdateMoneyDisplay();
     }
 

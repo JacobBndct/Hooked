@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2151655942765980180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5939259093294043842}
+  - component: {fileID: 8705991010231766454}
+  - component: {fileID: 4585581262451498536}
+  - component: {fileID: 3069279347266214869}
+  m_Layer: 0
+  m_Name: FishSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5939259093294043842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151655942765980180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8705991010231766454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151655942765980180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2de5e0a075adc4c85541a11653df07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavSurface: {fileID: 0}
+  TimeManager: {fileID: 4585581262451498536}
+  FishTypes:
+  - {fileID: 9153363359848520315, guid: f33039f761075144f84982dfe827ff7e, type: 3}
+  initialSpawnNumber: 10
+  minSpawnFrequency: 10
+  maxSpawnFrequency: 10
+--- !u!114 &4585581262451498536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151655942765980180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0d43afac8450541bb7923fac120d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ended: 0
+  _endTime: 5
+  _timeScale: 1
+  _tickEvent: {fileID: 0}
+  _endEvent: {fileID: 11400000, guid: e5dd8f410b30307468616306121379aa, type: 2}
+  _started: 1
+  _rewind: 0
+  _resetOnEnd: 1
+--- !u!114 &3069279347266214869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151655942765980180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842d91d4a4daff84f824d43f52a70dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: e5dd8f410b30307468616306121379aa, type: 2}
+  EventAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8705991010231766454}
+        m_TargetAssemblyTypeName: SpawnFish, Assembly-CSharp
+        m_MethodName: SpawnRandomFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

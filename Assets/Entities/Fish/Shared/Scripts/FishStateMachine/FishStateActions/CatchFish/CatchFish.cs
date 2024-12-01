@@ -13,8 +13,7 @@ public class CatchFish : EntityStateAction
         {
             if (PlayerCharacter.Instance.IsPullingFish)
             {
-                var money = PlayerPrefs.GetInt("Money", 100);
-                PlayerPrefs.SetInt("Money", money + fish.GetFishData().SellingValue);
+                PlayerManager.Instance.playerData.money += fish.GetFishData().SellingValue;
 
                 Destroy(fish.gameObject);
             }
