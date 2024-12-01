@@ -45,7 +45,11 @@ public class ShopTransition : MonoBehaviour
         }
 
         activeCamera = targetCamera;
-        activeCamera.Priority = 10;
+
+        if (activeCamera != null)
+        {
+            activeCamera.Priority = 10;
+        }
 
         //return button
         if (returnButton != null)
