@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,14 +14,49 @@ public class PlayerLook : PlayerAbility
     [Header("Camera Obeject Parameters")]
     [SerializeField] Transform rotatableObjects;
 
+    public bool paused = false;
+    public GameObject pauseMenu;
+
     protected override void Awake()
     {
         // call base player ability awake
         base.Awake();
+        Unpause();        
+    }
 
-        // hide and lock the cursor
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) && !paused)
+        {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+       if(paused)
+       {
+        Unpause();
+       }
+       else
+       {
+        Pause();
+       }
+    }
+
+    private void Unpause()
+    {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        pauseMenu.SetActive(false);
+        paused = false;
+    }
+    private void Pause()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        pauseMenu.SetActive(true);
+        paused = true;
     }
 
     // action to be called when the mouse moves

@@ -12,6 +12,7 @@ public class LevelTransit : MonoBehaviour
 
         if (selectedLevel != null)
         {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             SceneTransitioner.Instance.LoadScene(selectedLevel);
         }
     }
