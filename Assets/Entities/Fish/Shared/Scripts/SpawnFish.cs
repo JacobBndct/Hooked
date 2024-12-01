@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class SpawnFish : MonoBehaviour
 {
     [SerializeField] private NavMeshSurface NavSurface;
+    [SerializeField] private TimeManager Timer;
     [SerializeField] private List<GameObject> FishTypes = new List<GameObject>{ };
 
     [SerializeField] private int initialSpawnNumber = 10;
@@ -23,7 +24,43 @@ public class SpawnFish : MonoBehaviour
 
     public void SpawnRandomFish()
     {
-        int randIndex = Mathf.FloorToInt(Random.Range(0.0f, 1.0f) * FishTypes.Count);
+        int randIndex = 0;
+
+        while (true)
+        {
+            float sum = 0f;
+            foreach (var fish in FishTypes)
+            {
+                sum += fish.GetComponent<FishController>().GetFishData().SpawnChance;
+            }
+
+
+            float scaledIndex = Mathf.FloorToInt(Random.Range(0.0f, sum));
+            randIndex = 0;
+            float lowerBound = 0f;
+            for (int i = 0; i < FishTypes.Count; i++)
+            {
+                FishData fishData = FishTypes[i].GetComponent<FishController>().GetFishData();
+
+                float upperBound = lowerBound + fishData.SpawnChance;
+                if (lowerBound < scaledIndex && scaledIndex < upperBound)
+                {
+                    break;
+                }
+
+                lowerBound = upperBound;
+                randIndex++;
+            }
+
+            FishData spawnFishData = FishTypes[randIndex].GetComponent<FishController>().GetFishData();
+            float time = Timer.CurrentTime / Timer.EndTime;
+
+            if (spawnFishData.SpawnStartTime < time && time < spawnFishData.SpawnEndTime )
+            {
+                break;
+            }
+        }
+
 
         Vector3 randPos = new Vector3(
             Random.Range(-1.0f, 1.0f) * NavSurface.size.x / 2f,

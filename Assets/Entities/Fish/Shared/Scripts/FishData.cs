@@ -14,6 +14,7 @@ public class FishData : ScriptableObject
     [SerializeField] private float maxNibbleTimer = 5f;
 
     [Header("Fish Spawn")]
+    [SerializeField] private float spawnChance = 1f;
     [SerializeField] private float spawnStartTime = 0f;
     [SerializeField] private float spawnEndTime = 1f;
 
@@ -39,6 +40,7 @@ public class FishData : ScriptableObject
     public float MinNibbleTimer => minNibbleTimer;
     public float MaxNibbleTimer => maxNibbleTimer;
 
+    public float SpawnChance => spawnChance;
     public float SpawnStartTime => spawnStartTime;
     public float SpawnEndTime => spawnEndTime;
 

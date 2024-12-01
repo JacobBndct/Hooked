@@ -4632,6 +4632,22 @@ PrefabInstance:
       propertyPath: NavSurface
       value: 
       objectReference: {fileID: 158626914}
+    - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
+      propertyPath: FishTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
+      propertyPath: FishTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 719499833698747259, guid: 503df440bd7d4e8428e7e22cb12e6093, type: 3}
+    - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
+      propertyPath: FishTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 248410199289376079, guid: 5db1476783ad46b4d9ae4415841d96ca, type: 3}
+    - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
+      propertyPath: FishTypes.Array.data[3]
+      value: 
+      objectReference: {fileID: 487142276665621171, guid: 38e3537b3bed870459e7f1126081e885, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
