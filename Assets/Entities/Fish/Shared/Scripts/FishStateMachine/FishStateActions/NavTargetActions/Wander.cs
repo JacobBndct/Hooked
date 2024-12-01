@@ -7,7 +7,6 @@ public class Wander : EntityStateAction
     public override void PerformAction(Entity entityReference)
     {
         FishController fish = ((FishController)entityReference);
-        Debug.Log("Wander");
 
         if (fish != null && fish.Timer.Ended)
         {

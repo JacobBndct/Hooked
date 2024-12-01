@@ -19,8 +19,8 @@ MonoBehaviour:
   baseSpeed: 5
   avoidanceSpeed: 10
   avoidanceRadius: 20
-  attractionRadius: 5
-  attractionTickChance: 0.1
+  attractionRadius: 200
+  attractionTickChance: 1
   preferredBaitTypes: 01000000
   minWanderTimer: 1
   maxWanderTimer: 5

@@ -10,6 +10,7 @@ public class FishController : Entity
     private FishData _data;
 
     public bool IsInterested = false;
+
     public TimeManager Timer { get { return _timer; } private set { _timer = value; } }
     [SerializeField]
     private TimeManager _timer;
@@ -22,7 +23,7 @@ public class FishController : Entity
 
     private void InitializeFishStateMachine()
     {
-        _stateMachine = new EntityStateMachine(_startState, this);
+        _stateMachine = new EntityStateMachine(Instantiate(_startState), this);
     }
 
     public FishData GetFishData()
@@ -49,6 +50,18 @@ public class FishController : Entity
     // call the fixed update function of the statemachine
     public void FixedUpdate()
     {
+        float distance = Vector3.Distance(PlayerCharacter.Instance.HookPosition, transform.position);
+        bool isInRange = distance < _data.AttractionRadius;
+
+        if (!isInRange)
+        {
+            IsInterested = false;
+        }
+        else if (!IsInterested)
+        {
+            IsInterested = Random.Range(0.0f, 1.0f) < _data.AttractionTickChance;
+        }
+
         _stateMachine?.FixedUpdate();
     }
 

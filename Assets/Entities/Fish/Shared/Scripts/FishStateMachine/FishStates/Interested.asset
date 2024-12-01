@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f6bbc318801904aaa96e57084fb31b, type: 3}
   m_Name: Interested
   m_EditorClassIdentifier: 
-  EnterStateActions:
-  - {fileID: 11400000, guid: ed06fe741b5005a43be9c531d69e3ba2, type: 2}
+  EnterStateActions: []
   ExitStateActions: []
   UpdateActions: []
-  FixedUpdateActions: []
+  FixedUpdateActions:
+  - {fileID: 11400000, guid: ed06fe741b5005a43be9c531d69e3ba2, type: 2}
   LateUpdateActions: []
   EntityStateTransition:
   - {fileID: 11400000, guid: 9f1f782d1052dd942973f7788e90493c, type: 2}

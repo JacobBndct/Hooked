@@ -12,7 +12,7 @@ public class PlayerCharacter : Entity
 
     // boolean conditional player character entity variables
     public bool IsFishing = false;
-    public Vector3 HookPosition = Vector3.zero;
+    public Vector3 HookPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
     // private instance
     private static PlayerCharacter s_Instance;

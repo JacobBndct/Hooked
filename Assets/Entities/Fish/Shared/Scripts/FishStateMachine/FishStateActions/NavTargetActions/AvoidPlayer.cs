@@ -13,7 +13,6 @@ public class AvoidPlayer : EntityStateAction
             fish.SetSpeed(fish.GetFishData().AvoidanceSpeed);
             var target = GetAvoidanceDestination(fish);
             fish.SetTargetLocation(target);
-            Debug.Log("Scare");
         }
     }
 

@@ -7,30 +7,27 @@ using UnityEngine.InputSystem;
 public class PlayerFishing : PlayerAbility
 {
     [Header("References")]
-    [SerializeField] private Transform cam;
-    [SerializeField] private Transform launcherTip;
-    [SerializeField] private LayerMask IsGrappleableLayer;
+    [SerializeField] private Transform _fishingRodTip;
     [SerializeField] private LineRenderer grappleRope;
     
     [Header("Grappling")]
-    [SerializeField] private float maxGrappleDist;
+    [SerializeField] private float maxFishingDist;
+    [SerializeField] private float chargeSpeed;
     [SerializeField] private float ropeSpeed = 8f;
 
     [SerializeField] private float overshootYAxis;
-    [SerializeField] private float pullPower;
-    [SerializeField] private float pullDelay;
 
-    private Vector3 grapplePoint;
-    private Vector3 currentPoint;
-    private Vector3 initialGrapplePosition;
-    private Vector3 initialGrappleNormal;
+    private Vector3 _fishingTarget;
+
+    [SerializeField] private Rigidbody _bobberPoint;
+
     private Vector3 velocityToSet;
-    private float initialDistance;
 
-    [SerializeField] private float grappleCD;
-    private float grappleCDTimer;
+    [SerializeField] private float fishingCD;
+    private float fishingCDTimer;
 
-    private bool isGrappleHit;
+    private bool isFishingHeld = false;
+    private float _fishingDistance = 0.1f;
 
     [Header("Spring")]
     private Spring spring;
@@ -53,14 +50,21 @@ public class PlayerFishing : PlayerAbility
         // launch grappling rope when the player presses the input
         if (context.started)
         {
-            _player.IsFishing = true;
-            StartGrapple();
+            if (_player.IsFishing)
+            {
+                // pull rod back and check if any fish was caught
+                PullbackFishingRod();
+            }
+            else if (!isFishingHeld)
+            {
+                isFishingHeld = true;
+            }
         }
-        // when the input is release pull the player in
-        else if (context.canceled && !_player.IsFishing)
+        else if (context.canceled && isFishingHeld)
         {
             _player.IsFishing = true;
-            CastFishingRod();
+            isFishingHeld = false;
+            CastFishingRod(0.1f);
         }
     }
     
@@ -76,63 +80,47 @@ public class PlayerFishing : PlayerAbility
     // increments the grappling launcher's cooldown down if it has been used
     private void Update()
     {
-        if (grappleCDTimer > 0)
+        if (fishingCDTimer > 0)
         {
-            grappleCDTimer -= Time.deltaTime;
+            fishingCDTimer -= Time.deltaTime;
+        }
+        
+        if (isFishingHeld && (_fishingDistance < maxFishingDist))
+        {
+            _fishingDistance += Time.deltaTime * chargeSpeed;
         }
     }
 
     // draw the rope
     private void LateUpdate()
     {
+        UpdateBobberPosition();
         DrawRope();
     }
 
     // start the grappling process by racasting to see if there are any colliders that can be grappled in front of the player
-    private void CastFishingRod()
+    private void CastFishingRod(float waitTime)
     {
         // if the grapple launcher is on cooldown return
-        if (grappleCDTimer > 0) return;
+        if (fishingCDTimer > 0) return;
 
         // set the grappling status
         _player.IsFishing = true;
-        isGrappleHit = true;
+        _bobberPoint.useGravity = true;
 
-        // raycast forward from the camera and set grappling values if there is a hit
-        RaycastHit hit;
-        if(Physics.Raycast(cam.position, cam.forward, out hit, maxGrappleDist, IsGrappleableLayer))
-        {
-            grapplePoint = hit.point;
-            initialDistance = Vector3.Distance(launcherTip.position, grapplePoint);
-            initialGrapplePosition = launcherTip.position;
-            initialGrappleNormal = _player.rb.transform.forward;
-        }
-        else
-        {
-            isGrappleHit = false;
-            grapplePoint = cam.position + cam.forward * maxGrappleDist;
-            initialDistance = Vector3.Distance(launcherTip.position, grapplePoint);
+        _bobberPoint.transform.parent = null;
 
-            // cancel the grappling if the raycast missed
-            StartCoroutine(StopGrapple(RopeWaitTime()));
-        }
+        _fishingTarget = _player.transform.position + _player.rb.transform.forward * _fishingDistance;
 
         // set some more values for drawing the rope
-        currentPoint = launcherTip.position;
+        _bobberPoint.position = _fishingRodTip.position;
         grappleRope.enabled = true;
-    }
 
-    // perform the pulling action of the grappling hook
-    private void ExecuteGrapple(float waitTime)
-    {
         // find the lowest point of the player
         Vector3 lowestPoint = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
 
-        // calculate the change in position between the original grappling point and the release points
-        Vector3 pullGrappleDirection = -ProjectMovementOntoPlane(launcherTip.position) * pullPower;
-
         // find the relative grappling point
-        float grapplePointRelativeYPos = grapplePoint.y + pullGrappleDirection.y - lowestPoint.y;
+        float grapplePointRelativeYPos = _fishingTarget.y - lowestPoint.y;
 
         // calculate the highest point the arc of the trajectory
         float highestPointOnArc = grapplePointRelativeYPos + overshootYAxis;
@@ -141,26 +129,62 @@ public class PlayerFishing : PlayerAbility
         if (grapplePointRelativeYPos < 0) highestPointOnArc = overshootYAxis;
 
         // start the jump coroutine
-        StartCoroutine(JumpToPosition(grapplePoint + pullGrappleDirection, highestPointOnArc, waitTime));
-        
-        // start the stop grappling coroutine
-        StartCoroutine(StopGrapple(waitTime));
+        StartCoroutine(CastToPosition(transform.position, _fishingTarget, highestPointOnArc, waitTime));
+    }
+
+    private void PullbackFishingRod()
+    {
+        StartCoroutine(StopGrapple(RopeWaitTime()));
     }
 
     // a coroutine that stops the grappling and puts it on cooldown
     private IEnumerator StopGrapple(float waitTime)
     {
-        yield return new WaitForSeconds(waitTime);
+        Vector3 lowestPoint = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
+
+        // find the relative grappling point
+        float grapplePointRelativeYPos = _fishingTarget.y - lowestPoint.y;
+
+        // calculate the highest point the arc of the trajectory
+        float highestPointOnArc = grapplePointRelativeYPos + overshootYAxis;
+
+        // if the grapple point is lower than the player set the highest point to the overshoot value
+        if (grapplePointRelativeYPos < 0) highestPointOnArc = overshootYAxis;
+
+        // start the jump coroutine
+        StartCoroutine(CastToPosition(_fishingTarget, transform.position, highestPointOnArc / 2f, 0.1f));
+
+        yield return new WaitForSeconds(waitTime * 3);
 
         _player.IsFishing = false;
+        _fishingDistance = 0.1f;
 
-        grappleCDTimer = grappleCD;
+        _bobberPoint.useGravity = false;
+        _bobberPoint.velocity = Vector3.zero;
+        _bobberPoint.transform.parent = _fishingRodTip.parent.parent;
+
+        fishingCDTimer = fishingCD;
 
         grappleRope.enabled = false;
+
     }
 
+    // applies the jumping velocity to the player
+    private IEnumerator CastToPosition(Vector3 startPosition, Vector3 targetPosition, float trajectoryHeight, float waitTime)
+    {
+        // wait for a given amount of time
+        yield return new WaitForSeconds(waitTime);
+
+        // find the desired velocitys
+        velocityToSet = CalculateCastVelocity(startPosition, targetPosition, trajectoryHeight);
+
+        // set the velocity of the player
+        _bobberPoint.velocity = velocityToSet;
+    }
+
+
     // calculate the required velocity in order to reach a given trajectory height to reach the endpoint
-    public Vector3 CalculateJumpVelocity(Vector3 startingPoint, Vector3 endPoint, float trajectoryHeight)
+    public Vector3 CalculateCastVelocity(Vector3 startingPoint, Vector3 endPoint, float trajectoryHeight)
     {
         // find the required y and zx displacements
         float gravity = Physics.gravity.y;
@@ -174,20 +198,23 @@ public class PlayerFishing : PlayerAbility
         // add the velocities together
         return velocityY + velocityXZ;
     }
-
-    // projects the 3d rotation of the player's grappling launcher onto the original forward plane
-    private Vector3 ProjectMovementOntoPlane(Vector3 point)
-    {
-        Vector3 directionOfMovement = point - initialGrapplePosition;
-        Vector3 projection = Vector3.Project(directionOfMovement, initialGrappleNormal);
-        Vector3 projectedPoint = point - projection;
-        return projectedPoint - initialGrapplePosition;
-    }
     
     // the wait time will be the speed over the distance
     private float RopeWaitTime()
     {
-        return Vector3.Distance(launcherTip.position, grapplePoint) / ropeSpeed;
+        return Vector3.Distance(_fishingRodTip.position, _fishingTarget) / ropeSpeed;
+    }
+
+    private void UpdateBobberPosition()
+    {
+        if (_player.IsFishing)
+        {
+            _player.HookPosition = _bobberPoint.transform.position;
+        }
+        else
+        {
+            _player.HookPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+        }
     }
 
     private void DrawRope()
@@ -195,7 +222,7 @@ public class PlayerFishing : PlayerAbility
         // if not grappling reset the line render and spring component
         if (!_player.IsFishing)
         {
-            currentPoint = launcherTip.position;
+            _bobberPoint.position = _fishingRodTip.position;
             spring.Reset();
             grappleRope.positionCount = 0;
             return;
@@ -211,8 +238,8 @@ public class PlayerFishing : PlayerAbility
         // set the deltaTime of the spring componenet
         spring.Update(Time.deltaTime);
 
-        Vector3 forceDirection = Quaternion.LookRotation((grapplePoint - launcherTip.position).normalized) * Vector3.up;
-        currentPoint = Vector3.Lerp(currentPoint, grapplePoint, (Time.deltaTime * ropeSpeed) / initialDistance);
+        Vector3 forceDirection = Quaternion.LookRotation((_fishingTarget - _fishingRodTip.position).normalized) * Vector3.up;
+        //_bobberPoint.position = Vector3.Lerp(_bobberPoint.position, _fishingTarget, (Time.deltaTime * ropeSpeed) / _fishingDistance);
         
         for (int i = 0; i < quality + 1; i++)
         {
@@ -220,7 +247,7 @@ public class PlayerFishing : PlayerAbility
             float delta = i / (float) quality;
             Vector3 offset = forceDirection * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value * affectCurve.Evaluate(delta);
 
-            grappleRope.SetPosition(i, Vector3.Lerp(launcherTip.position, currentPoint, delta) + offset);
+            grappleRope.SetPosition(i, Vector3.Lerp(_fishingRodTip.position, _bobberPoint.position, delta) + offset);
         }
     }
 }

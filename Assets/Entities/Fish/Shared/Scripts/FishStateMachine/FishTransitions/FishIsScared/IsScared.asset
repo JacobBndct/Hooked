@@ -7,10 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6e02414c65264d43a9b471093c74c79, type: 3}
   m_Name: IsScared
   m_EditorClassIdentifier: 
-  TrueState: {fileID: 11400000, guid: 596c2ceea091e6642a3e4324fb08d6b2, type: 2}
-  FalseState: {fileID: 0}
+  trueState: {fileID: 11400000, guid: 596c2ceea091e6642a3e4324fb08d6b2, type: 2}
+  falseState: {fileID: 0}

@@ -7,10 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e43138b450370d41b5bf8bbee209da7, type: 3}
   m_Name: IsWandering
   m_EditorClassIdentifier: 
-  TrueState: {fileID: 11400000, guid: 4c634be6ff104244abefd17da2ddc371, type: 2}
-  FalseState: {fileID: 0}
+  trueState: {fileID: 11400000, guid: 4c634be6ff104244abefd17da2ddc371, type: 2}
+  falseState: {fileID: 0}

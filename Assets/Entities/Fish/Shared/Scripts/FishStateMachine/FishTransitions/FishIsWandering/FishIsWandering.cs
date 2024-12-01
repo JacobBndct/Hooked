@@ -10,10 +10,10 @@ public class FishIsWandering : EntityStateTransitions
     // evaluates the condition for grappling
     public override bool EvaluateCondition()
     {
-        float distance = Vector3.Distance(PlayerCharacter.Instance.transform.position, _fish.transform.position);
-        bool isInRange = distance < _fish.GetFishData().AvoidanceRadius;
+        float playerDistance = Vector3.Distance(PlayerCharacter.Instance.transform.position, _fish.transform.position);
 
-        bool isScared = isInRange && PlayerCharacter.Instance.IsMoving;
+        bool isInAvoidanceRange = playerDistance < _fish.GetFishData().AvoidanceRadius;
+        bool isScared = isInAvoidanceRange && PlayerCharacter.Instance.IsMoving;
 
         return !isScared && !_fish.IsInterested;
     }
