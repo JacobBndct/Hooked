@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792999531096686840}
   - component: {fileID: 1229729836969498268}
+  - component: {fileID: 4539932319837200675}
   m_Layer: 0
   m_Name: Pet Fish
   m_TagString: Untagged
@@ -44,6 +45,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88774e28a44080743b2368505fd3919d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4539932319837200675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515962502829152721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47025a852b983545874a6c88a495b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1315647262079919599
@@ -98,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pet Fish Model
       objectReference: {fileID: 0}
+    - target: {fileID: 8201049766924530037, guid: 75ac69a3b2638f7429d5e9f9f5eb3263, type: 3}
+      propertyPath: m_Name
+      value: accessories
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119,6 +136,10 @@ PrefabInstance:
     - target: {fileID: 1699092090728774011, guid: cc1f0553f8e7add4c9d41e8411bd5be8, type: 3}
       propertyPath: m_Name
       value: Fishbowl
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699092090728774011, guid: cc1f0553f8e7add4c9d41e8411bd5be8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9082334725466303002, guid: cc1f0553f8e7add4c9d41e8411bd5be8, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,8 +8,8 @@ public class SlotMachineController : MonoBehaviour
     // slot textures
     private static Texture2D[][] skins = ResourcesLoader.skinsSlotTxts; 
     private static int[] skinCount = ResourcesLoader.skinCount;
-    private static Material[] slots; 
-    private static Texture2D[] worms = ResourcesLoader.wormsSlotTxts; 
+    private static Texture2D[] worms = ResourcesLoader.wormsSlotTxts;
+    private static Material[] slots = ResourcesLoader.slotsMats; 
     
     // rates
     private const float C_RATE = 5f;
@@ -22,24 +22,9 @@ public class SlotMachineController : MonoBehaviour
     
     void Awake()
     { 
-        // load + assign textures to mats
-        slots = new Material[8];
-        LoadMaterials();
-        
         // get components
         animator = GetComponent<Animator>();
         audSrcs = GetComponents<AudioSource>();
-    }
-    
-    /**
-     * Helper method to load materials from /Resources
-     */
-    private static void LoadMaterials()
-    {
-        for (int x = 0; x < 8; x++)
-        {
-            slots[x] = Resources.Load<Material>("Slot Machine/materials/gacha" + (x + 1) + "mat");
-        }
     }
     
     /**
@@ -77,22 +62,6 @@ public class SlotMachineController : MonoBehaviour
                 worm = Random.Range(0, 8);
                 slots[x].SetTexture("_MainTex", worms[worm]);
             }
-        }
-    }
-
-    // TODO: temp
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E)) // TODO: && !animator.enabled or smth to prevent spam
-        {
-            Spin();
-        }
-
-        if (skins == null || skinCount == null || worms == null)
-        {
-            skins = ResourcesLoader.skinsSlotTxts; 
-            skinCount = ResourcesLoader.skinCount;
-            worms = ResourcesLoader.wormsSlotTxts; 
         }
     }
     
