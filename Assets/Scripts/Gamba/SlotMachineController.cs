@@ -1,3 +1,9 @@
+/**
+ * Class which implements the slot machine logic.
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -5,84 +11,122 @@ using UnityEngine;
 
 public class SlotMachineController : MonoBehaviour
 {
-    private static Texture2D[][] skins; // blue
-    private static Texture2D winSkin;
-    private static KeyValuePair<int, int>[] curSkinInds; // blue
-    private static int[] skinCount;
-    private static Material[] wheelSlots; // blue by def
+    // slot textures
+    private static Texture2D[][] skins = ResourcesLoader.skinsSlotTxts; 
+    private static int[] skinCount = ResourcesLoader.skinCount;
+    private static Texture2D[] worms = ResourcesLoader.wormsSlotTxts;
+    private static Material[] slots = ResourcesLoader.slotsMats; 
     
-    // rates
-    private const float C_RATE = 1.5f;
-    private const float R_RATE = 1.5f;
-    private const float E_RATE = 1.5f;
-    private const float W_RATE = 1.5f;
+    // skin drop rates
+    private const float C_RATE = 5f;
+    private const float R_RATE = 2f;
+    private const float E_RATE = 0.1f;
+    private const float SKIN_RATE = C_RATE + R_RATE + E_RATE;
+    
+    // refs
+    private Animator animator;
+    private AudioSource[] audSrcs;
+    
+    private bool spinning = false;
     
     void Awake()
-    {
-        // load textures
-        winSkin = Resources.Load<Texture2D>("Slot Machine/textures/winfishtxt");
-        skinCount = new int[3];
-        skins = new Texture2D[3][];
-        LoadTextures("Common", 0);
-        LoadTextures("Rare", 1);
-        LoadTextures("Epic", 2);
-        
-        // load + assign textures to mats
-        wheelSlots = new Material[8];
-        curSkinInds = new KeyValuePair<int, int>[8];
-        LoadMaterials();
-        AssignTextures();
-    }
-
-    void Start()
-    {
-        // check rotation of wheel +/- diff mod 360 == 0
-        // if T assign new textures
-        // add a check for overflow where if rot large reset to init amt
+    { 
+        skins = ResourcesLoader.skinsSlotTxts; // TODO: remove
+        skinCount = ResourcesLoader.skinCount; // TODO: remove
+        worms = ResourcesLoader.wormsSlotTxts; // TODO: remove
+        slots = ResourcesLoader.slotsMats; // TODO: remove
+        // get components
+        animator = GetComponent<Animator>();
+        audSrcs = GetComponents<AudioSource>();
     }
     
     /**
-     * Helper method to load textures from /Resources
-     *
-     * @param rarityStr - Name of the rarity, used to access the correct folder.
-     * @param rarity - Index of rarity in arrays.
-     */
-    private static void LoadTextures(string rarityStr, int rarity)
-    {
-        skinCount[rarity] = Directory.GetFiles("Assets/Resources/Slot Machine/textures/" + rarityStr, "*", SearchOption.TopDirectoryOnly).Length / 2;
-        skins[rarity] = new Texture2D[skinCount[rarity]];
-        
-        for (int x = 0; x < skinCount[rarity]; x++)
-        {
-            skins[rarity][x] = Resources.Load<Texture2D>("Slot Machine/textures/" + rarityStr + "/" + rarityStr.Substring(0,1).ToLower() + "gacha" + (x + 1) + "txt");
-        }
-    }
-    
-    /**
-     * Helper method to load materials from /Resources
-     */
-    private static void LoadMaterials()
-    {
-        for (int x = 0; x < 8; x++)
-        {
-            wheelSlots[x] = Resources.Load<Material>("Slot Machine/materials/gacha" + (x + 1) + "mat");
-        }
-    }
-
-    /**
-     * Randomly assign textures to the 8 wheel slot materials
+     * Method which randomly assigns textures to the slot materials for every spin.
      */
     private void AssignTextures()
     {
-        int rng;
-        int rarity;
+        float rng;
+        int rarity, skinPos, worm;
         
         for (int x = 0; x < 8; x++)
         {
-            rarity = 0; // TODO: rand 0, 1, 2, or 3 (win skin) based on rates
-            rng = x; // TODO: rand between 0 n skinCount[rarity] - 1
-            wheelSlots[x].SetTexture("_MainTex", skins[rarity][rng]);
-            curSkinInds[x] = new KeyValuePair <int, int>(rarity, rng);
+            rng = Random.Range(0f, 100.0f);
+            if (rng <= SKIN_RATE)
+            {
+                if (rng <= E_RATE)
+                {
+                    rarity = 2;
+                }
+                else if (rng <= R_RATE) 
+                {
+                    rarity = 1;
+                }
+                else 
+                {
+                    rarity = 0;
+                }
+                
+                skinPos = Random.Range(0, skinCount[rarity]);
+                slots[x].SetTexture("_MainTex", skins[rarity][skinPos]);
+            }
+            else
+            {
+                worm = Random.Range(0, 8);
+                slots[x].SetTexture("_MainTex", worms[worm]);
+            }
         }
+    }
+    
+    /**
+     * Method which implements the logic for when the slots wheel spins.
+     */
+    public void Spin()
+    {
+        if (!spinning)
+        {
+            spinning = true;
+            bool enoughWorms = true; // TODO: implement check
+
+            if (enoughWorms)
+            {
+                // TODO: decrement worms
+                audSrcs[0].Play();
+                animator.enabled = true;
+                AssignTextures();
+            }
+            else
+            {
+                audSrcs[1].Play();
+            }
+        }
+    }
+    
+    /**
+     * Method which implements the logic for when the slots wheel lands on a prize.
+     */
+    public void Landed()
+    {
+        animator.enabled = false;
+        animator.Rebind();
+        animator.Update(0f);
+        
+        string prize =  slots[0].GetTexture("_MainTex").name;
+        prize = prize.Substring(0, prize.Length - 7);
+        
+        if (prize.Substring(0, 4) == "worm") // increment worms
+        {
+            // TODO: increment worm
+        }
+        else // unlock skin 
+        {
+            bool dupe = PlayerSkins.UnlockSkin(prize);
+
+            if (dupe) // if won dupe skin get some worms back
+            {
+                // TODO: increment worms
+            }
+        }
+        
+        spinning = false;
     }
 }
