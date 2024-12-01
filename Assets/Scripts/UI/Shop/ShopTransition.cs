@@ -4,65 +4,53 @@ using Cinemachine;
 public class ShopTransition : MonoBehaviour
 {
     public CinemachineVirtualCamera mainCamera;
-    public CinemachineVirtualCamera shopCamera;
-    public GameObject shopUI;
     public GameObject returnButton;
-
+    public GameObject shopUI;
+    public GameObject arcadeUI;
+    public GameObject fishUI;
     private CinemachineVirtualCamera activeCamera;
 
     private void Start()
     {
-        //initial UI state
-        if (shopUI != null)
-        {
-            shopUI.SetActive(false);
-        }
-
         if (returnButton != null)
         {
             returnButton.SetActive(false);
         }
     }
 
-    public void TransitionToShop()
+    public void TransitionToShop(CinemachineVirtualCamera targetCamera, GameObject shopUI)
     {
-        //show ui
-        if (shopCamera != null)
-        {
-            TransitionToArea(shopCamera);
-        }
-        
+        TransitionToArea(targetCamera);
+
         if (shopUI != null)
         {
             shopUI.SetActive(true);
         }
     }
 
-    public void ReturnToMainView()
+    
+    public void TransitionToArcade(CinemachineVirtualCamera targetCamera, GameObject arcadeUIObj)
     {
-        //camera reset
-        if (activeCamera != null)
-        {
-            activeCamera.Priority = 0;
-            activeCamera = null;
-        }
+        TransitionToArea(targetCamera);
+        arcadeUI = arcadeUIObj;
 
-        if (mainCamera != null)
+        if (arcadeUIObj != null)
         {
-            mainCamera.Priority = 10;
-        }
-
-        //hide ui
-        if (shopUI != null)
-        {
-            shopUI.SetActive(false);
-        }
-        
-        if (returnButton != null)
-        {
-            returnButton.SetActive(false);
+            arcadeUIObj.SetActive(true);
         }
     }
+    
+    public void TransitionToFish(CinemachineVirtualCamera targetCamera, GameObject fishUIObj)
+    {
+        TransitionToArea(targetCamera);
+        fishUI = fishUIObj;
+
+        if (fishUIObj != null)
+        {
+            fishUIObj.SetActive(true);
+        }
+    }
+    
     //camera movement logic
     public void TransitionToArea(CinemachineVirtualCamera targetCamera)
     {
@@ -72,12 +60,50 @@ public class ShopTransition : MonoBehaviour
         }
 
         activeCamera = targetCamera;
-        activeCamera.Priority = 10;
+
+        if (activeCamera != null)
+        {
+            activeCamera.Priority = 10;
+        }
 
         //return button
         if (returnButton != null)
         {
             returnButton.SetActive(true);
+        }
+    }
+    public void ReturnToMainView()
+    {
+        //camera reset
+        if (activeCamera != null)
+        {
+            activeCamera.Priority = 0;
+        }
+        activeCamera = null;
+
+        if (mainCamera != null)
+        {
+            mainCamera.Priority = 10;
+        }
+        
+        if (returnButton != null)
+        {
+            returnButton.SetActive(false);
+        }
+
+        if (shopUI != null)
+        {
+            shopUI.SetActive(false);
+        }
+        
+        if (arcadeUI != null)
+        {
+            arcadeUI.SetActive(false);
+        }
+        
+        if (fishUI != null)
+        {
+            fishUI.SetActive(false);
         }
     }
 }

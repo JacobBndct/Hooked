@@ -3,16 +3,9 @@ using UnityEngine;
 public class ShopSectionSelection : MonoBehaviour
 {
     public ShopTransition transitionManager;
-    public Cinemachine.CinemachineVirtualCamera targetCamera;
+    public Cinemachine.CinemachineVirtualCamera shopCamera;
     public Texture2D hoverCursor;
-    private Texture2D defaultCursor;
-
-    private void Start()
-    {
-        defaultCursor = CursorTextureManager.Instance.GetDefaultCursor();
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
-    }
-
+    public GameObject shopUI;
     private void OnMouseEnter()
     {
         Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
@@ -20,15 +13,15 @@ public class ShopSectionSelection : MonoBehaviour
 
     private void OnMouseExit()
     {
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private void OnMouseDown()
     {
-        if (targetCamera != null && transitionManager != null)
+        if (transitionManager != null)
         {
             // Transition to the shop camera
-            transitionManager.TransitionToShop();
+            transitionManager.TransitionToShop(shopCamera, shopUI);
         }
     }
 }
