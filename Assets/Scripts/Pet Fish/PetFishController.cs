@@ -1,3 +1,9 @@
+/**
+ * Class which implements the pet fish logic.
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +15,7 @@ public class PetFishController : MonoBehaviour
     public static string curSkin;
     
 	void Awake() {
-		// reset skin to def (not saving)
+		// reset skin to def (last equipped skin not saved)
 		curSkin = "def";
 	}
 
@@ -17,12 +23,13 @@ public class PetFishController : MonoBehaviour
     {
         ResourcesLoader.KYSAwake(); // TODO: remove
         fishMat = ResourcesLoader.fishMat; // TODO: remove
-        // get curr skin from material
-        SetSkin(curSkin); // call jic model doesn't match
+        SetSkin(curSkin); // equip current skin
     }
 
     /**
      * Updates fish model to match curSkin.
+     *
+     * @param skin Name - Name of the skin.
      */
     public void SetSkin(string skinName)
     {
@@ -42,7 +49,7 @@ public class PetFishController : MonoBehaviour
 
         // accessories
 		GameObject prevAccessories = prevSkinObj.accessories;
-		if (prevAccessories != null)
+		if (prevAccessories != null) // remove curr accessories if any
         {
             prevAccessories.SetActive(false);
         }

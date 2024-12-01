@@ -1,9 +1,17 @@
+/**
+ * Class which keeps track of skin data and whether a player has unlocked
+ * them or not.
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
+// struct for skin data
 public struct Skin
 {
     public GameObject accessories;
@@ -14,34 +22,25 @@ public struct Skin
 
 public class PlayerSkins : MonoBehaviour
 {
-    private static int skinCount = 1;
     private static Dictionary<string, Skin> skinDict;
+	private const string UNLOCKED_SKINS_FILE = "Assets/Resources/Pet Fish/unlockedskins.txt";
     
     void Awake()
     {
         ResourcesLoader.KYSAwake(); // TODO: remove
-        // calculate skin count
-        int[] skinCountArr = ResourcesLoader.skinCount;
-        for (int x = 0; x < skinCountArr.Length; x++)
-        {
-            skinCount += skinCountArr[x];
-        }
-        skinCount += 1; // TODO: temp bc no gold mat yet
-        
         // init skin dict
-        skinDict = new Dictionary<string, Skin>();
         CreateSkinDict();
         
-        // add textures to entries
+        // get + add textures to entries
         AddSkinTextures();
 
-        // add accessories to entries
+        // get + add accessories to entries
         AddSkinAccessories();
         
-        // get skins display slots
+        // get + add skin UI display slots to entries
         GetSkinDisplaySlots();
         
-        // load unlocked
+        // load unlocked skins from text file
         LoadUnlockedSkins();
     }
 
@@ -50,6 +49,8 @@ public class PlayerSkins : MonoBehaviour
      */
     private static void CreateSkinDict()
     {
+		skinDict = new Dictionary<string, Skin>();
+
         // add def skin
         Skin defSkin = new Skin();
         defSkin.unlocked = true;
@@ -114,7 +115,7 @@ public class PlayerSkins : MonoBehaviour
     }
 
     /**
-     * Helper method to load display slots.
+     * Helper method to add skin UI display slots to their dictionary entries.
      */
     private static void GetSkinDisplaySlots()
     {
@@ -143,7 +144,7 @@ public class PlayerSkins : MonoBehaviour
      */
     private static void LoadUnlockedSkins()
     {
-        StreamReader reader = new StreamReader("Assets/Resources/Pet Fish/unlockedskins.txt");
+        StreamReader reader = new StreamReader(UNLOCKED_SKINS_FILE);
 
         Skin curSkin;
         string inp;
@@ -157,27 +158,36 @@ public class PlayerSkins : MonoBehaviour
     }
     
     /**
-     * Method called to unlock skin.
+     * Method called to unlock a skin.
      *
-     * @param skinName - Name of skin.
+     * @param skinName - Name of the skin.
+	 * @return Whether the skin was already unlocked.
      */
-    public static void UnlockSkin(string skinName)
-    {
+    public static bool UnlockSkin(string skinName)
+    {		
         Skin curSkin = skinDict[skinName];
-        curSkin.unlocked = true;
-		skinDict[skinName] = curSkin;
+
+		if (!curSkin.unlocked) {
+			// update dict
+        	curSkin.unlocked = true;
+			skinDict[skinName] = curSkin;
         
-        // write to file
-        StreamWriter writer = new StreamWriter("Assets/Resources/Pet Fish/unlockedskins.txt", true);
-        writer.WriteLine(skinName);
-        writer.Close();
+        	// write to file
+        	StreamWriter writer = new StreamWriter(UNLOCKED_SKINS_FILE, true);
+        	writer.WriteLine(skinName);
+        	writer.Close();
+
+			return false;
+		}
+			
+		return true;
     }
 
     /**
-     * Getter for a skin's object.
+     * Getter for a skin's Skin object.
      *
-     * @param skinName - Name of skin.
-     * @return Skin object of skin.
+     * @param skinName - Name of the skin.
+     * @return Skin object of the skin.
      */
     public static Skin GetSkin(string skinName)
     {
@@ -188,8 +198,8 @@ public class PlayerSkins : MonoBehaviour
     /**
      * Method which checks whether a skin is unlocked.
      *
-     * @param skinName - Name of skin.
-     * @return Whether skin is unlocked.
+     * @param skinName - Name of the skin.
+     * @return Whether the skin is unlocked.
      */
     public static bool IsUnlocked(string skinName)
     {

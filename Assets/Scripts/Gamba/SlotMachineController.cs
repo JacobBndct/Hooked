@@ -1,3 +1,9 @@
+/**
+ * Class which implements the slot machine logic.
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -11,26 +17,33 @@ public class SlotMachineController : MonoBehaviour
     private static Texture2D[] worms = ResourcesLoader.wormsSlotTxts;
     private static Material[] slots = ResourcesLoader.slotsMats; 
     
-    // rates
+    // skin drop rates
     private const float C_RATE = 5f;
     private const float R_RATE = 2f;
     private const float E_RATE = 0.1f;
     private const float SKIN_RATE = C_RATE + R_RATE + E_RATE;
     
+    // refs
     private Animator animator;
     private AudioSource[] audSrcs;
     
+    private bool spinning = false;
+    
     void Awake()
     { 
+        skins = ResourcesLoader.skinsSlotTxts; // TODO: remove
+        skinCount = ResourcesLoader.skinCount; // TODO: remove
+        worms = ResourcesLoader.wormsSlotTxts; // TODO: remove
+        slots = ResourcesLoader.slotsMats; // TODO: remove
         // get components
         animator = GetComponent<Animator>();
         audSrcs = GetComponents<AudioSource>();
     }
     
     /**
-     * Randomly assign textures to the slot materials.
+     * Method which randomly assigns textures to the slot materials for every spin.
      */
-    private static void AssignTextures()
+    private void AssignTextures()
     {
         float rng;
         int rarity, skinPos, worm;
@@ -40,7 +53,7 @@ public class SlotMachineController : MonoBehaviour
             rng = Random.Range(0f, 100.0f);
             if (rng <= SKIN_RATE)
             {
-                if (rng <= E_RATE) // TODO: && final pond unlocked
+                if (rng <= E_RATE)
                 {
                     rarity = 2;
                 }
@@ -52,7 +65,6 @@ public class SlotMachineController : MonoBehaviour
                 {
                     rarity = 0;
                 }
-                rarity = 1; // TODO: temp
                 
                 skinPos = Random.Range(0, skinCount[rarity]);
                 slots[x].SetTexture("_MainTex", skins[rarity][skinPos]);
@@ -70,18 +82,22 @@ public class SlotMachineController : MonoBehaviour
      */
     public void Spin()
     {
-        bool enoughWorms = true; // TODO: implement check
+        if (!spinning)
+        {
+            spinning = true;
+            bool enoughWorms = true; // TODO: implement check
 
-        if (enoughWorms)
-        {
-            // TODO: decrement worms
-            audSrcs[0].Play();
-            animator.enabled = true;
-            AssignTextures();
-        }
-        else
-        {
-            audSrcs[1].Play();
+            if (enoughWorms)
+            {
+                // TODO: decrement worms
+                audSrcs[0].Play();
+                animator.enabled = true;
+                AssignTextures();
+            }
+            else
+            {
+                audSrcs[1].Play();
+            }
         }
     }
     
@@ -103,7 +119,14 @@ public class SlotMachineController : MonoBehaviour
         }
         else // unlock skin 
         {
-            PlayerSkins.UnlockSkin(prize);
+            bool dupe = PlayerSkins.UnlockSkin(prize);
+
+            if (dupe) // if won dupe skin get some worms back
+            {
+                // TODO: increment worms
+            }
         }
+        
+        spinning = false;
     }
 }

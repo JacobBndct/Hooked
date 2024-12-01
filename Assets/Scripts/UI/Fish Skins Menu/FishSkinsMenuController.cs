@@ -1,3 +1,9 @@
+/**
+ * Class which implements the pet fish skins menu logic.
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +11,7 @@ using UnityEngine.UI;
 
 public class FishSkinsMenuController : MonoBehaviour
 {
+	// refs
     private static AudioSource audSrc;
     private static PetFishController petFishController;
     
@@ -21,7 +28,7 @@ public class FishSkinsMenuController : MonoBehaviour
     
     void OnEnable()
     {
-        // update skin visibility
+        // update whether a skin is greyed out based on whether it is unlocked
         Dictionary<string, Skin> skinDict = PlayerSkins.GetSkinDict();
         
         foreach(KeyValuePair<string, Skin> skin in skinDict)
@@ -35,7 +42,7 @@ public class FishSkinsMenuController : MonoBehaviour
     }
 
     /**
-     * Method called by clicking on a skin.
+     * Method which sets the pet fish skin when a skin slot is clicked.
      *
      * @param skinSlotObj - GameObject of the skin slot which called this method.
      */

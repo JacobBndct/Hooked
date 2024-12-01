@@ -1,3 +1,9 @@
+/**
+ * Class which loads assets from the Resources folder. 
+ * 
+ * @author Marina (Mars) Semenova
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +73,7 @@ public class ResourcesLoader : MonoBehaviour
     }
     
     /**
-     * Helper method to load skin slot textures from /Resources
+     * Helper method to load skin slot textures from the Resources folder.
      *
      * @param rarityStr - Name of the rarity, used to access the correct folder.
      * @param rarity - Index of rarity in arrays.
@@ -87,7 +93,7 @@ public class ResourcesLoader : MonoBehaviour
     }
 
     /**
-     * Helper method to load worm slot textures from /Resources
+     * Helper method to load worm slot textures from the Resources folder.
      */
     private static void LoadWormsSlotTxts()
     {
@@ -98,7 +104,7 @@ public class ResourcesLoader : MonoBehaviour
     }
     
     /**
-     * Helper method to load materials from /Resources
+     * Helper method to load the slots materials from the Resources folder.
      */
     private static void LoadMaterials()
     {
@@ -109,7 +115,7 @@ public class ResourcesLoader : MonoBehaviour
     }
     
     /**
-     * Helper method to load skin textures from /Resources
+     * Helper method to load skin textures from the Resources folder.
      */
     private static void LoadSkinsTxts()
     {

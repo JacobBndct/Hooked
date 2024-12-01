@@ -17,10 +17,6 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
-# Ingnore test scenes
-Assets/Scenes/Sandbox*
-!Assets/Scenes/SandboxShared
-
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
