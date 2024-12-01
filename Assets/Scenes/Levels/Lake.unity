@@ -2892,30 +2892,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: chargeSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: maxFishingDist
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: overshootYAxis
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3702600443176643811, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3702600443176643811, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 3702600443176643811, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3877086686189368059, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4665,9 +4641,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942715571809231667, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 942715571809231667, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6958970231121163419, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
       propertyPath: m_Name
       value: DayNightTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341342347102667654, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341342347102667654, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7630933958684069994, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
       propertyPath: _sun

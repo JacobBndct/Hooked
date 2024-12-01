@@ -47,12 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavSurface: {fileID: 0}
-  TimeManager: {fileID: 4585581262451498536}
+  Timer: {fileID: 0}
   FishTypes:
   - {fileID: 9153363359848520315, guid: f33039f761075144f84982dfe827ff7e, type: 3}
-  initialSpawnNumber: 10
-  minSpawnFrequency: 10
-  maxSpawnFrequency: 10
+  initialSpawnNumber: 5
 --- !u!114 &4585581262451498536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ended: 0
-  _endTime: 5
+  _endTime: 10
   _timeScale: 1
   _tickEvent: {fileID: 0}
   _endEvent: {fileID: 11400000, guid: e5dd8f410b30307468616306121379aa, type: 2}
