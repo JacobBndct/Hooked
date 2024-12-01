@@ -2458,6 +2458,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4611289780749131086, guid: 22bf10307623f80e083c3872fa21810f, type: 3}
   m_PrefabInstance: {fileID: 1217709737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &751694253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4941568016765472679, guid: 22bf10307623f80e083c3872fa21810f, type: 3}
+  m_PrefabInstance: {fileID: 1217709737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2cec9f50479b692b95a576144b1a45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &765893111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5842477214231608441, guid: 479d69335d9a79d42a15e4852176e047, type: 3}
@@ -3798,6 +3809,10 @@ PrefabInstance:
     - target: {fileID: 3572104424577934551, guid: 22bf10307623f80e083c3872fa21810f, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3897741453712433631, guid: 22bf10307623f80e083c3872fa21810f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4611289780749131086, guid: 22bf10307623f80e083c3872fa21810f, type: 3}
       propertyPath: m_Pivot.x
@@ -5755,7 +5770,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1974224701}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751694253}
+        m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+        m_MethodName: ToggleTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1974224701
 MonoBehaviour:
   m_ObjectHideFlags: 0
