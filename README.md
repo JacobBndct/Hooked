@@ -54,3 +54,6 @@ Coming soon!
 ### Audio
 - [Oof](https://www.youtube.com/watch?v=xYJ63OTMDL4)
 - [Slots sounds](https://www.youtube.com/watch?v=LBjAw8VC1Ok)
+
+### Graphics
+- [Sticky note](https://www.nicepng.com/ourpic/u2q8a9w7i1a9r5t4_sticky-note-png-sticky-notes-transparent-png/)
