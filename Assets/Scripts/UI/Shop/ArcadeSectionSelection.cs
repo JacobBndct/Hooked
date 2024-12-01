@@ -1,11 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ShopSectionSelection : MonoBehaviour
+public class ArcadeSectionSelection : MonoBehaviour
 {
     public ShopTransition transitionManager;
-    public Cinemachine.CinemachineVirtualCamera shopCamera;
+    public Cinemachine.CinemachineVirtualCamera arcadeCamera;
+    public GameObject arcadeUI; // UI to toggle for the arcade machine
     public Texture2D hoverCursor;
-    public GameObject shopUI;
+
     private void OnMouseEnter()
     {
         Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
@@ -20,8 +21,7 @@ public class ShopSectionSelection : MonoBehaviour
     {
         if (transitionManager != null)
         {
-            // Transition to the shop camera
-            transitionManager.TransitionToShop(shopCamera, shopUI);
+            transitionManager.TransitionToArcade(arcadeCamera, arcadeUI);
         }
     }
 }

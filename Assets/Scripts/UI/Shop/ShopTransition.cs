@@ -4,63 +4,36 @@ using Cinemachine;
 public class ShopTransition : MonoBehaviour
 {
     public CinemachineVirtualCamera mainCamera;
-    public CinemachineVirtualCamera shopCamera;
-    public GameObject shopUI;
     public GameObject returnButton;
-
+    public GameObject shopUI;
     private CinemachineVirtualCamera activeCamera;
 
     private void Start()
     {
-        //initial UI state
-        if (shopUI != null)
-        {
-            shopUI.SetActive(false);
-        }
-
         if (returnButton != null)
         {
             returnButton.SetActive(false);
         }
     }
 
-    public void TransitionToShop()
+    public void TransitionToShop(CinemachineVirtualCamera targetCamera, GameObject shopUI)
     {
-        //show ui
-        if (shopCamera != null)
-        {
-            TransitionToArea(shopCamera);
-        }
-        
+        TransitionToArea(targetCamera);
+
         if (shopUI != null)
         {
             shopUI.SetActive(true);
         }
     }
 
-    public void ReturnToMainView()
+    
+    public void TransitionToArcade(CinemachineVirtualCamera targetCamera, GameObject arcadeUI)
     {
-        //camera reset
-        if (activeCamera != null)
-        {
-            activeCamera.Priority = 0;
-            activeCamera = null;
-        }
+        TransitionToArea(targetCamera);
 
-        if (mainCamera != null)
+        if (arcadeUI != null)
         {
-            mainCamera.Priority = 10;
-        }
-
-        //hide ui
-        if (shopUI != null)
-        {
-            shopUI.SetActive(false);
-        }
-        
-        if (returnButton != null)
-        {
-            returnButton.SetActive(false);
+            arcadeUI.SetActive(true);
         }
     }
     //camera movement logic
@@ -72,12 +45,40 @@ public class ShopTransition : MonoBehaviour
         }
 
         activeCamera = targetCamera;
-        activeCamera.Priority = 10;
+
+        if (activeCamera != null)
+        {
+            activeCamera.Priority = 10;
+        }
 
         //return button
         if (returnButton != null)
         {
             returnButton.SetActive(true);
+        }
+    }
+    public void ReturnToMainView()
+    {
+        //camera reset
+        if (activeCamera != null)
+        {
+            activeCamera.Priority = 0;
+        }
+        activeCamera = null;
+
+        if (mainCamera != null)
+        {
+            mainCamera.Priority = 10;
+        }
+        
+        if (returnButton != null)
+        {
+            returnButton.SetActive(false);
+        }
+
+        if (shopUI != null)
+        {
+            shopUI.SetActive(false);
         }
     }
 }
