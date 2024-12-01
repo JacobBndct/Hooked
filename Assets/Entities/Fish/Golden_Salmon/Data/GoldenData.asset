@@ -16,8 +16,9 @@ MonoBehaviour:
   captureDistance: 5
   minHookedTimer: 2
   maxHookedTimer: 5
-  minBiteTimer: 2
-  maxBiteTimer: 5
+  minNibbleTimer: 2
+  maxNibbleTimer: 5
+  spawnChance: 0.1
   spawnStartTime: 0
   spawnEndTime: 1
   wanderRadius: 30

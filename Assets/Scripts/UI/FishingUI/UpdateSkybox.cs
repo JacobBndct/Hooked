@@ -1,6 +1,6 @@
 using Managers.Time;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class UpdateSkybox : MonoBehaviour
 {
@@ -17,6 +17,8 @@ public class UpdateSkybox : MonoBehaviour
 
     [SerializeField]
     private TimeManager _Timer;
+    [SerializeField] 
+    private TextMeshProUGUI timeText;
 
     public void Awake()
     {
@@ -30,6 +32,8 @@ public class UpdateSkybox : MonoBehaviour
 
         RotateX(_startingAngle + completion * _range);
         SetColour(completion);
+
+
     }
 
     private void RotateX(float angle)

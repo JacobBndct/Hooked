@@ -15,6 +15,11 @@ public class CatchFish : EntityStateAction
             {
                 PlayerManager.Instance.playerData.money += fish.GetFishData().SellingValue;
 
+                if (PlayerManager.Instance.playerData.worms > 0)
+                {
+                    PlayerManager.Instance.playerData.worms -= 1;
+                }
+
                 Destroy(fish.gameObject);
             }
         }

@@ -72,6 +72,8 @@ public class PlayerFishing : PlayerAbility
     // set up the spring at the game start
     private void Start()
     {
+        PlayerCharacter.Instance.MaxFishingDistance = maxFishingDist;
+
         spring = new Spring();
         spring.SetTarget(0);
         spring.SetDamper(damper);
@@ -90,6 +92,8 @@ public class PlayerFishing : PlayerAbility
         {
             _fishingDistance += Time.deltaTime * chargeSpeed;
         }
+
+        PlayerCharacter.Instance.FishingDistance = _fishingDistance;
     }
 
     // draw the rope

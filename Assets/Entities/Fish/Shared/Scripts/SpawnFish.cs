@@ -36,8 +36,8 @@ public class SpawnFish : MonoBehaviour
 
 
             float scaledIndex = Mathf.FloorToInt(Random.Range(0.0f, sum));
-            randIndex = 0;
             float lowerBound = 0f;
+
             for (int i = 0; i < FishTypes.Count; i++)
             {
                 FishData fishData = FishTypes[i].GetComponent<FishController>().GetFishData();
@@ -45,17 +45,17 @@ public class SpawnFish : MonoBehaviour
                 float upperBound = lowerBound + fishData.SpawnChance;
                 if (lowerBound < scaledIndex && scaledIndex < upperBound)
                 {
+                    randIndex = i;
                     break;
                 }
 
                 lowerBound = upperBound;
-                randIndex++;
             }
 
             FishData spawnFishData = FishTypes[randIndex].GetComponent<FishController>().GetFishData();
             float time = Timer.CurrentTime / Timer.EndTime;
 
-            if (spawnFishData.SpawnStartTime < time && time < spawnFishData.SpawnEndTime )
+            if (spawnFishData.SpawnStartTime <= time && time <= spawnFishData.SpawnEndTime)
             {
                 break;
             }

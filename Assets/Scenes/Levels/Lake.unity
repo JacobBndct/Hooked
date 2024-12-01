@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 930374352}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4629,6 +4629,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 8683975466063506575}
+    - target: {fileID: 8705991010231766454, guid: 760b26fb3a582ec4793ada0b74c8ab7f, type: 3}
       propertyPath: NavSurface
       value: 
       objectReference: {fileID: 158626914}
@@ -4661,10 +4665,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6133427500319372164, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
-      propertyPath: _endTime
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 6958970231121163419, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
       propertyPath: m_Name
       value: DayNightTimer
@@ -4718,6 +4718,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+--- !u!114 &8683975466063506575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6133427500319372164, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+  m_PrefabInstance: {fileID: 8683975466063506574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0d43afac8450541bb7923fac120d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

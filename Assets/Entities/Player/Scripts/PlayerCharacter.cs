@@ -13,6 +13,8 @@ public class PlayerCharacter : Entity
     // boolean conditional player character entity variables
     public bool IsFishing = false;
     public bool IsPullingFish = false;
+    public float FishingDistance = 0f;
+    public float MaxFishingDistance = 0f;
     public Color BobberColour = Color.white;
     public Vector3 HookPosition = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 

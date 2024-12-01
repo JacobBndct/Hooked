@@ -59,7 +59,8 @@ public class FishController : Entity
         }
         else if (!IsInterested)
         {
-            IsInterested = Random.Range(0.0f, 1.0f) < _data.AttractionTickChance;
+            float baitMultiplier = (PlayerManager.Instance.playerData.worms >= 1) ? 3 : 1;
+            IsInterested = Random.Range(0.0f, 1.0f) < (_data.AttractionTickChance * baitMultiplier);
         }
 
         _stateMachine?.FixedUpdate();
