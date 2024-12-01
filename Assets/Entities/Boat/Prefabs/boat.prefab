@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9198466455697856481}
   - component: {fileID: 1775735801360083661}
   - component: {fileID: 6107715765412362950}
+  - component: {fileID: 2417290428239366633}
   m_Layer: 0
   m_Name: Return to Shop
   m_TagString: Untagged
@@ -153,25 +154,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Managers.CustomSceneManager.SceneTransitioner,
-          Managers
-        m_MethodName: SetSceneTransitionAnimation
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b541217f2898e3b43a618ab1d9cf36d8, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Managers.CustomSceneManager.AbstractSceneTransitionScriptableObject,
-            Managers
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Managers.CustomSceneManager.SceneTransitioner,
-          Managers
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 2417290428239366633}
+        m_TargetAssemblyTypeName: TriggerEventOnButton, Assembly-CSharp
+        m_MethodName: OnButtonTrigger
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -180,6 +166,19 @@ MonoBehaviour:
           m_StringArgument: shop
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2417290428239366633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429010313045760485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097d3aec4d9b49938a12b10d0521068b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c2d603fbb681794488927ed9510a4428, type: 2}
 --- !u!1 &4505285592070154305
 GameObject:
   m_ObjectHideFlags: 0

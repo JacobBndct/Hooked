@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Managers.EventManager;
 using UnityEngine;
 
-public class ReturnToShop : MonoBehaviour
+public class TriggerEventOnButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameEvent Event;
 
-    // Update is called once per frame
-    void Update()
+    public void OnButtonTrigger()
     {
-        
+        Event.TriggerEvent();
     }
 }
