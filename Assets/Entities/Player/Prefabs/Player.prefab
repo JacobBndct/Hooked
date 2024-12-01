@@ -565,6 +565,8 @@ MonoBehaviour:
   invertVertical: 0
   cameraRange: 70
   rotatableObjects: {fileID: 7659778302851631605}
+  paused: 0
+  pauseMenu: {fileID: 0}
 --- !u!114 &8410081225756494325
 MonoBehaviour:
   m_ObjectHideFlags: 0

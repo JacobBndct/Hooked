@@ -94,6 +94,11 @@ namespace Managers.CustomSceneManager
             StartCoroutine(Exit());
         }
 
+		public void QuitGame()
+		{
+			Application.Quit(0);
+		}
+
 		// exit coroutine
         private IEnumerator Exit()
 		{
