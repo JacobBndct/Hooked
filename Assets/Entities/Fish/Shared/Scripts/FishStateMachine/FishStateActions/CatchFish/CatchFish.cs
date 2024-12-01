@@ -7,7 +7,6 @@ public class CatchFish : EntityStateAction
 {
     public override void PerformAction(Entity entityReference)
     {
-        Debug.Log("Capture");
         FishController fish = ((FishController)entityReference);
         if (fish != null)
         {
@@ -20,6 +19,7 @@ public class CatchFish : EntityStateAction
                     PlayerManager.Instance.playerData.worms -= 1;
                 }
 
+                PlayerManager.Instance.playerData.SavePlayerData();
                 Destroy(fish.gameObject);
             }
         }

@@ -46,7 +46,7 @@ namespace Managers.CustomSceneManager
 			s_Instance = this;
 
 			// add object to don't destroy on load
-			DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(gameObject.transform.parent);
 			
 			// set transition canvas
 			m_TransitionCanvas = GetComponent<Canvas>();
