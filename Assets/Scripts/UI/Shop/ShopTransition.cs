@@ -6,6 +6,8 @@ public class ShopTransition : MonoBehaviour
     public CinemachineVirtualCamera mainCamera;
     public GameObject returnButton;
     public GameObject shopUI;
+    public GameObject arcadeUI;
+    public GameObject fishUI;
     private CinemachineVirtualCamera activeCamera;
 
     private void Start()
@@ -27,15 +29,28 @@ public class ShopTransition : MonoBehaviour
     }
 
     
-    public void TransitionToArcade(CinemachineVirtualCamera targetCamera, GameObject arcadeUI)
+    public void TransitionToArcade(CinemachineVirtualCamera targetCamera, GameObject arcadeUIObj)
     {
         TransitionToArea(targetCamera);
+        arcadeUI = arcadeUIObj;
 
-        if (arcadeUI != null)
+        if (arcadeUIObj != null)
         {
-            arcadeUI.SetActive(true);
+            arcadeUIObj.SetActive(true);
         }
     }
+    
+    public void TransitionToFish(CinemachineVirtualCamera targetCamera, GameObject fishUIObj)
+    {
+        TransitionToArea(targetCamera);
+        fishUI = fishUIObj;
+
+        if (fishUIObj != null)
+        {
+            fishUIObj.SetActive(true);
+        }
+    }
+    
     //camera movement logic
     public void TransitionToArea(CinemachineVirtualCamera targetCamera)
     {
@@ -79,6 +94,16 @@ public class ShopTransition : MonoBehaviour
         if (shopUI != null)
         {
             shopUI.SetActive(false);
+        }
+        
+        if (arcadeUI != null)
+        {
+            arcadeUI.SetActive(false);
+        }
+        
+        if (fishUI != null)
+        {
+            fishUI.SetActive(false);
         }
     }
 }
