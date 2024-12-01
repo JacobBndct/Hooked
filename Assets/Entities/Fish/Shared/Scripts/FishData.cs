@@ -5,16 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Fish", menuName = "Data/Fish")]
 public class FishData : ScriptableObject
 {
+    [Header("Fish Capture")]
+    [SerializeField] private int sellingValue = 10;
+    [SerializeField] private float captureDistance = 1f;
+    [SerializeField] private float minHookedTimer = 2f;
+    [SerializeField] private float maxHookedTimer = 5f;
+    [SerializeField] private float minNibbleTimer = 2f;
+    [SerializeField] private float maxNibbleTimer = 5f;
+
     [Header("Fish Spawn")]
     [SerializeField] private float spawnStartTime = 0f;
     [SerializeField] private float spawnEndTime = 1f;
 
-    [Header("Fish Value")]
-    [SerializeField] private int sellingValue = 10;
-
     [Header("Fish Movement")]
     [SerializeField] private float wanderRadius = 30;
     [SerializeField] private float baseSpeed = 7f;
+    [SerializeField] private float minWanderTimer = 0.3f;
+    [SerializeField] private float maxWanderTimer = 2f;
 
     [Header("Fish Avoidance")]
     [SerializeField] private float avoidanceSpeed = 10f;
@@ -25,19 +32,20 @@ public class FishData : ScriptableObject
     [SerializeField] private float attractionTickChance = 0.1f;
     [SerializeField] private int[] preferredBaitTypes = { 1 };
 
-    [Header("Fish Timers")]
-    [SerializeField] private float minWanderTimer = 0.3f;
-    [SerializeField] private float maxWanderTimer = 2f;
-    [SerializeField] private float minInterestTimer = 2f;
-    [SerializeField] private float maxInterestTimer = 5f;
+    public int SellingValue => sellingValue;
+    public float CaptureDistance => captureDistance;
+    public float MinHookedTimer => minHookedTimer;
+    public float MaxHookedTimer => maxHookedTimer;
+    public float MinNibbleTimer => minNibbleTimer;
+    public float MaxNibbleTimer => maxNibbleTimer;
 
     public float SpawnStartTime => spawnStartTime;
     public float SpawnEndTime => spawnEndTime;
 
-    public float SellingValue => sellingValue;
-
     public float WanderRadius => wanderRadius;
     public float BaseSpeed => baseSpeed;
+    public float MinWanderTimer => minWanderTimer;
+    public float MaxWanderTimer => maxWanderTimer;
 
     public float AvoidanceSpeed => avoidanceSpeed;
     public float AvoidanceRadius => avoidanceRadius;
@@ -46,8 +54,8 @@ public class FishData : ScriptableObject
     public float AttractionTickChance => attractionTickChance;
     public int[] PreferredBaitTypes => preferredBaitTypes;
 
-    public float MinWanderTimer => minWanderTimer;
-    public float MaxWanderTimer => maxWanderTimer;
-    public float MinInterestTimer => minInterestTimer;
-    public float MaxInterestTimer => maxInterestTimer;
+    public object GetPropValue(string propName)
+    {
+        return GetType().GetProperty(propName).GetValue(this, null);
+    }
 }

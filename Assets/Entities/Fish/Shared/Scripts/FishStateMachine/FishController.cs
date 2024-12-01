@@ -70,4 +70,9 @@ public class FishController : Entity
     {
         _stateMachine?.LateUpdate();
     }
+
+    public void OnDestroy()
+    {
+        _stateMachine?.CleanUp();
+    }
 }

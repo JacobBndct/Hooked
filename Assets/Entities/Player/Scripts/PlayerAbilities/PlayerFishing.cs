@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerFishing : PlayerAbility
 {
@@ -96,6 +97,7 @@ public class PlayerFishing : PlayerAbility
     {
         UpdateBobberPosition();
         DrawRope();
+        _bobberPoint.gameObject.GetComponent<Renderer>().material.color = PlayerCharacter.Instance.BobberColour;
     }
 
     // start the grappling process by racasting to see if there are any colliders that can be grappled in front of the player
@@ -134,12 +136,14 @@ public class PlayerFishing : PlayerAbility
 
     private void PullbackFishingRod()
     {
-        StartCoroutine(StopGrapple(RopeWaitTime()));
+        StartCoroutine(PullFish(RopeWaitTime()));
     }
 
     // a coroutine that stops the grappling and puts it on cooldown
-    private IEnumerator StopGrapple(float waitTime)
+    private IEnumerator PullFish(float waitTime)
     {
+        _player.IsPullingFish = true;
+
         Vector3 lowestPoint = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
 
         // find the relative grappling point
@@ -154,7 +158,7 @@ public class PlayerFishing : PlayerAbility
         // start the jump coroutine
         StartCoroutine(CastToPosition(_fishingTarget, transform.position, highestPointOnArc / 2f, 0.1f));
 
-        yield return new WaitForSeconds(waitTime * 3);
+        yield return new WaitForSeconds(waitTime);
 
         _player.IsFishing = false;
         _fishingDistance = 0.1f;
@@ -167,6 +171,7 @@ public class PlayerFishing : PlayerAbility
 
         grappleRope.enabled = false;
 
+        _player.IsPullingFish = false;
     }
 
     // applies the jumping velocity to the player

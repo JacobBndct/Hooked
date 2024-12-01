@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11294a555ae7074db591f829e71140f, type: 3}
   m_Name: MuskieData
   m_EditorClassIdentifier: 
+  sellingValue: 10
+  captureDistance: 5
+  minHookedTimer: 2
+  maxHookedTimer: 5
+  minBiteTimer: 2
+  maxBiteTimer: 5
   spawnStartTime: 0
   spawnEndTime: 1
-  sellingValue: 10
   wanderRadius: 30
   baseSpeed: 5
+  minWanderTimer: 2
+  maxWanderTimer: 5
   avoidanceSpeed: 10
   avoidanceRadius: 20
-  attractionRadius: 200
-  attractionTickChance: 1
+  attractionRadius: 35
+  attractionTickChance: 0.001
   preferredBaitTypes: 01000000
-  minWanderTimer: 1
-  maxWanderTimer: 5
-  minInterestTimer: 2
-  maxInterestTimer: 5

@@ -2959,11 +2959,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
       propertyPath: chargeSpeed
-      value: 3
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
+      propertyPath: maxFishingDist
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 229843607216278197, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
       propertyPath: overshootYAxis
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3702600443176643811, guid: b085cc565583823b7a707f9f38fb192d, type: 3}
       propertyPath: m_Mass

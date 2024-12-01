@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f6bbc318801904aaa96e57084fb31b, type: 3}
-  m_Name: Interested
+  m_Name: Hooked
   m_EditorClassIdentifier: 
-  EnterStateActions: []
-  ExitStateActions: []
+  EnterStateActions:
+  - {fileID: 11400000, guid: aab6c4aa6e4d04b4096ee21a0e8caac9, type: 2}
+  - {fileID: 11400000, guid: 47845d9b9f03fe94192dc47d09ef0f25, type: 2}
+  ExitStateActions:
+  - {fileID: 11400000, guid: 01aa4455370b3c641b9b75f5aad178b5, type: 2}
   UpdateActions: []
   FixedUpdateActions:
-  - {fileID: 11400000, guid: ed06fe741b5005a43be9c531d69e3ba2, type: 2}
+  - {fileID: 11400000, guid: 32ffe09eea80fe94aa38e044d6add452, type: 2}
   LateUpdateActions: []
   EntityStateTransition:
-  - {fileID: 11400000, guid: 9f1f782d1052dd942973f7788e90493c, type: 2}
+  - {fileID: 11400000, guid: d3ff412916d7e0b49bcf985bfa66d447, type: 2}
   - {fileID: 11400000, guid: 7777d08260587f64ba8381f3c320dc18, type: 2}
-  - {fileID: 11400000, guid: 683d8a7f0c9c03a42b614994a498d7c3, type: 2}

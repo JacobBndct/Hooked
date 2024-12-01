@@ -1,5 +1,6 @@
 using UnityEngine;
 using Patterns.StateMachine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class EntityStateMachine : IStateMachine<EntityState>
 {
@@ -47,5 +48,11 @@ public class EntityStateMachine : IStateMachine<EntityState>
         {
             SetState(transitionState);
         }
+    }
+
+    public void CleanUp()
+    {
+        _currentState?.ExitState();
+        _currentState = null;
     }
 }

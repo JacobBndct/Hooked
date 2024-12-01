@@ -15,7 +15,7 @@ public class FishIsWandering : EntityStateTransitions
         bool isInAvoidanceRange = playerDistance < _fish.GetFishData().AvoidanceRadius;
         bool isScared = isInAvoidanceRange && PlayerCharacter.Instance.IsMoving;
 
-        return !isScared && !_fish.IsInterested;
+        return (!isScared && !_fish.IsInterested);
     }
 
     // evaluates the player transition's condition to see which state to return
