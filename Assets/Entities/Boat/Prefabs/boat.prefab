@@ -886,6 +886,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6763238856713457040}
     m_Modifications:
+    - target: {fileID: 1319875477552156156, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319875477552156156, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319875477552156156, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451072241367313322, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
+      propertyPath: chargeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451072241367313322, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
+      propertyPath: maxFishingDist
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5164431175877375322, guid: 3a9a0f243c351e44093ed57717d63eb4, type: 3}
       propertyPath: m_Name
       value: Player

@@ -1483,9 +1483,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942715571809231667, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 942715571809231667, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6958970231121163419, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
       propertyPath: m_Name
       value: DayNightTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341342347102667654, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341342347102667654, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7630933958684069994, guid: c1635e655151c0e4d8806356f16a79f5, type: 3}
       propertyPath: _sun
