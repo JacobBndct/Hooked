@@ -19,6 +19,7 @@ Coming soon!
 ### Tutorials
 - [Fish rigging](https://www.youtube.com/watch?v=D0m158KjsZo)
 - [Googly eyes](https://www.youtube.com/watch?v=d4MmD7jsrYY&t=21s)
+- [Scroll menu](https://www.youtube.com/watch?v=5gAy9y4mOFc)
 
 ### Models 
 
