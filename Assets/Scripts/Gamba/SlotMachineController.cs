@@ -4,10 +4,12 @@
  * @author Marina (Mars) Semenova
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SlotMachineController : MonoBehaviour
 {
@@ -31,10 +33,6 @@ public class SlotMachineController : MonoBehaviour
     
     void Awake()
     { 
-        skins = ResourcesLoader.skinsSlotTxts; // TODO: remove
-        skinCount = ResourcesLoader.skinCount; // TODO: remove
-        worms = ResourcesLoader.wormsSlotTxts; // TODO: remove
-        slots = ResourcesLoader.slotsMats; // TODO: remove
         // get components
         animator = GetComponent<Animator>();
         audSrcs = GetComponents<AudioSource>();
@@ -84,12 +82,12 @@ public class SlotMachineController : MonoBehaviour
     {
         if (!spinning)
         {
-            spinning = true;
-            bool enoughWorms = true; // TODO: implement check
+            bool enoughWorms = PlayerManager.Instance.playerData.worms >= 160; 
 
             if (enoughWorms)
             {
-                // TODO: decrement worms
+                spinning = true;
+                PlayerManager.Instance.playerData.worms -= 160; // decrement worms 
                 audSrcs[0].Play();
                 animator.enabled = true;
                 AssignTextures();
@@ -115,7 +113,19 @@ public class SlotMachineController : MonoBehaviour
         
         if (prize.Substring(0, 4) == "worm") // increment worms
         {
-            // TODO: increment worm
+            int wormNum = Int32.Parse(prize.Substring(4, 1));
+
+            if (wormNum == 1 || wormNum == 4) // regular worm
+            {
+                PlayerManager.Instance.playerData.worms += 1;
+            } else if (wormNum == 2) // golden worm
+            {
+                PlayerManager.Instance.playerData.worms += 160;
+            }
+            else // special worm
+            {
+                PlayerManager.Instance.playerData.worms += 20;
+            }
         }
         else // unlock skin 
         {
@@ -123,7 +133,19 @@ public class SlotMachineController : MonoBehaviour
 
             if (dupe) // if won dupe skin get some worms back
             {
-                // TODO: increment worms
+                int rarity = PlayerSkins.GetSkin(prize).rarity;
+
+                if (rarity == 2) // epic dupe
+                {
+                    PlayerManager.Instance.playerData.worms += 160;
+                } else if (rarity == 1) // rare dupe
+                {
+                    PlayerManager.Instance.playerData.worms += 80;
+                }
+                else // common dupe
+                {
+                    PlayerManager.Instance.playerData.worms += 20;
+                }
             }
         }
         

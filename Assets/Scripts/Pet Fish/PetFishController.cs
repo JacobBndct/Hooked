@@ -21,8 +21,6 @@ public class PetFishController : MonoBehaviour
 
     void Start()
     {
-        ResourcesLoader.KYSAwake(); // TODO: remove
-        fishMat = ResourcesLoader.fishMat; // TODO: remove
         SetSkin(curSkin); // equip current skin
     }
 

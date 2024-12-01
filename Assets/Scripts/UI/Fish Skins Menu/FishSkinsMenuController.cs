@@ -17,7 +17,6 @@ public class FishSkinsMenuController : MonoBehaviour
     
     void Awake()
     { 
-        ResourcesLoader.KYSAwake(); // TODO: remove
         // get pet fish controller
         GameObject petFish = GameObject.FindGameObjectsWithTag("pet fish")[0];
         petFishController = petFish.GetComponent<PetFishController>();

@@ -46,31 +46,6 @@ public class ResourcesLoader : MonoBehaviour
         defTxt = Resources.Load<Texture2D>("Pet Fish/def");
         LoadSkinsTxts();
     }
-
-	public static void KYSAwake() // TODO: remove
-    {
-        // load skins slot textures
-        skinCount = new int[3];
-        skinsSlotTxts = new Texture2D[3][];
-        LoadSkinsSlotTxts("Common", 0);
-        LoadSkinsSlotTxts("Rare", 1);
-        LoadSkinsSlotTxts("Epic", 2);
-        
-        // load worms slot textures
-        wormsSlotTxts = new Texture2D[8];
-        LoadWormsSlotTxts();
-        
-        // load slots mats
-        slotsMats = new Material[8];
-        LoadMaterials();
-        
-        // load fish mat
-        fishMat = Resources.Load<Material>("Pet Fish/petfishmat");
-        
-        // load skin textures
-        defTxt = Resources.Load<Texture2D>("Pet Fish/def");
-        LoadSkinsTxts();
-    }
     
     /**
      * Helper method to load skin slot textures from the Resources folder.

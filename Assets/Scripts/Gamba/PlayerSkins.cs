@@ -18,6 +18,7 @@ public struct Skin
     public Texture2D texture;
     public Image dispSlot;
     public bool unlocked;
+    public int rarity;
 }
 
 public class PlayerSkins : MonoBehaviour
@@ -27,7 +28,6 @@ public class PlayerSkins : MonoBehaviour
     
     void Awake()
     {
-        ResourcesLoader.KYSAwake(); // TODO: remove
         // init skin dict
         CreateSkinDict();
         
@@ -55,6 +55,7 @@ public class PlayerSkins : MonoBehaviour
         Skin defSkin = new Skin();
         defSkin.unlocked = true;
         defSkin.texture = ResourcesLoader.defTxt;
+        defSkin.rarity = -1;
         skinDict.Add("def", defSkin);
 
         Skin newSkin;
@@ -67,6 +68,7 @@ public class PlayerSkins : MonoBehaviour
                 newSkin = new Skin();
                 newSkinName = skinsSlotTxts[x][y].name;
                 newSkinName = newSkinName.Substring(0, newSkinName.Length - 7);
+                newSkin.rarity = x;
                 skinDict.Add(newSkinName, newSkin);
             }
         }
