@@ -2,7 +2,7 @@
 
 public class ArcadeSectionSelection : MonoBehaviour
 {
-    public ShopTransition transitionManager; // Reference to ShopTransition script
+    public ShopTransition transitionManager;
     public Cinemachine.CinemachineVirtualCamera arcadeCamera;
     public GameObject arcadeUI; // UI to toggle for the arcade machine
     public Texture2D hoverCursor;

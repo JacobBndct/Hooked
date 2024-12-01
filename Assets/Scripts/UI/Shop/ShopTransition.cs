@@ -5,7 +5,7 @@ public class ShopTransition : MonoBehaviour
 {
     public CinemachineVirtualCamera mainCamera;
     public GameObject returnButton;
-
+    public GameObject shopUI;
     private CinemachineVirtualCamera activeCamera;
 
     private void Start()
@@ -66,11 +66,15 @@ public class ShopTransition : MonoBehaviour
         {
             mainCamera.Priority = 10;
         }
-
         
         if (returnButton != null)
         {
             returnButton.SetActive(false);
+        }
+
+        if (shopUI != null)
+        {
+            shopUI.SetActive(false);
         }
     }
 }
