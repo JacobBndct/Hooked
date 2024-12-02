@@ -12,12 +12,7 @@ public class PetFishController : MonoBehaviour
 {
     // resources
     private static Material fishMat = ResourcesLoader.fishMat;
-    public static string curSkin;
-    
-	void Awake() {
-		// reset skin to def (last equipped skin not saved)
-		curSkin = "def";
-	}
+    public static string curSkin = "def";
 
     void Start()
     {
