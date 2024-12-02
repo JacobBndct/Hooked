@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 // struct for skin data
 public struct Skin
@@ -38,8 +39,11 @@ public class PlayerSkins : MonoBehaviour
         AddSkinAccessories();
         
         // get + add skin UI display slots to entries
-        GetSkinDisplaySlots();
-        
+        if (SceneManager.GetActiveScene().name == "Shop")
+        {
+            GetSkinDisplaySlots();
+        }
+
         // load unlocked skins from text file
         LoadUnlockedSkins();
     }

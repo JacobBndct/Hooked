@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11294a555ae7074db591f829e71140f, type: 3}
   m_Name: SturgeonData
   m_EditorClassIdentifier: 
-  sellingValue: 10
+  sellingValue: 115
   captureDistance: 5
   minHookedTimer: 2
   maxHookedTimer: 5
-  minNibbleTimer: 2
-  maxNibbleTimer: 5
-  spawnChance: 10
+  minNibbleTimer: 0.5
+  maxNibbleTimer: 1
+  spawnChance: 1
   spawnStartTime: 0
   spawnEndTime: 1
   wanderRadius: 30
-  baseSpeed: 5
+  baseSpeed: 4
   minWanderTimer: 2
   maxWanderTimer: 5
   avoidanceSpeed: 10

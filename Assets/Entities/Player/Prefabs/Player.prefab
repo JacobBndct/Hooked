@@ -189,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4bc415d6fb6730c4683c12cecaae7483, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -498,6 +498,10 @@ MonoBehaviour:
   IsMoving: 0
   rb: {fileID: 2301487308224901285}
   IsFishing: 0
+  IsPullingFish: 0
+  FishingDistance: 0
+  MaxFishingDistance: 0
+  BobberColour: {r: 1, g: 1, b: 1, a: 1}
   HookPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2451072241367313322
 MonoBehaviour:
@@ -514,6 +518,7 @@ MonoBehaviour:
   _fishingRodTip: {fileID: 5315215626234604327}
   grappleRope: {fileID: 6381110203998980154}
   maxFishingDist: 10
+  chargeSpeed: 0
   ropeSpeed: 8
   overshootYAxis: 3
   _bobberPoint: {fileID: 1319875477552156156}

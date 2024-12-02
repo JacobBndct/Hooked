@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11294a555ae7074db591f829e71140f, type: 3}
   m_Name: GoldenData
   m_EditorClassIdentifier: 
-  sellingValue: 10
+  sellingValue: 5432
   captureDistance: 5
-  minHookedTimer: 2
-  maxHookedTimer: 5
-  minNibbleTimer: 2
-  maxNibbleTimer: 5
+  minHookedTimer: 0.5
+  maxHookedTimer: 1
+  minNibbleTimer: 5
+  maxNibbleTimer: 10
   spawnChance: 0.1
-  spawnStartTime: 0
+  spawnStartTime: 0.5
   spawnEndTime: 1
   wanderRadius: 30
-  baseSpeed: 5
-  minWanderTimer: 2
-  maxWanderTimer: 5
-  avoidanceSpeed: 10
-  avoidanceRadius: 20
+  baseSpeed: 10
+  minWanderTimer: 1
+  maxWanderTimer: 3
+  avoidanceSpeed: 15
+  avoidanceRadius: 30
   attractionRadius: 35
-  attractionTickChance: 0.001
+  attractionTickChance: 0.0005
   preferredBaitTypes: 01000000

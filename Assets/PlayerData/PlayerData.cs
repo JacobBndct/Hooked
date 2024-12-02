@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int money = 100; // Starting money
+    public int money = 25; // Starting money
     public int casinoTokens = 0; // Casino token currency
     public int worms = 0; // Worms in inventory
 
@@ -33,7 +33,7 @@ public class PlayerData
     // Load progress (upgrades, inventory, etc.)
     public void LoadPlayerData()
     {
-        money = PlayerPrefs.GetInt("Money", 100);
+        money = PlayerPrefs.GetInt("Money", 25);
         casinoTokens = PlayerPrefs.GetInt("CasinoTokens", 0);
         worms = PlayerPrefs.GetInt("Worms", 0);
         

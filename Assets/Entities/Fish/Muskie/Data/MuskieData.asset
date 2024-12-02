@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11294a555ae7074db591f829e71140f, type: 3}
   m_Name: MuskieData
   m_EditorClassIdentifier: 
-  sellingValue: 10
+  sellingValue: 7
   captureDistance: 5
   minHookedTimer: 2
   maxHookedTimer: 5
-  minBiteTimer: 2
-  maxBiteTimer: 5
+  minNibbleTimer: 1
+  maxNibbleTimer: 2
+  spawnChance: 7
   spawnStartTime: 0
   spawnEndTime: 1
   wanderRadius: 30
